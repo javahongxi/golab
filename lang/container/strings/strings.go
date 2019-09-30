@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	s := "Yes我爱慕课网!" // UTF-8
+	s := "Yes我爱生态研究!" // UTF-8
 	fmt.Println(s)
 
 	for _, b := range []byte(s) {

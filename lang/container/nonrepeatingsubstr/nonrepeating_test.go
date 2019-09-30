@@ -18,7 +18,7 @@ func TestSubstr(t *testing.T) {
 		{"abcabcabcd", 4},
 
 		// Chinese support
-		{"这里是慕课网", 6},
+		{"这里是生态研究", 6},
 		{"一二三二一", 3},
 		{"黑化肥挥发发灰会花飞灰化肥挥发发黑会飞花", 8},
 	}
