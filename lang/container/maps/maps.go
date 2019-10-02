@@ -4,9 +4,9 @@ import "fmt"
 
 func main() {
 	m := map[string]string{
-		"name":    "ccmouse",
+		"name":    "javahongxi",
 		"course":  "golang",
-		"site":    "imooc",
+		"site":    "hongxi.org",
 		"quality": "notbad",
 	}
 
