@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/javahongxi/whatsgo/crawler/config"
-	rpcnames "github.com/javahongxi/whatsgo/crawler_distributed/config"
-	"github.com/javahongxi/whatsgo/crawler_distributed/rpcsupport"
-	"github.com/javahongxi/whatsgo/crawler_distributed/worker"
+	"github.com/javahongxi/golab/crawler/config"
+	rpcnames "github.com/javahongxi/golab/crawler_distributed/config"
+	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
+	"github.com/javahongxi/golab/crawler_distributed/worker"
 )
 
 func TestCrawlService(t *testing.T) {

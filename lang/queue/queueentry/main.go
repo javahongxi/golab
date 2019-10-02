@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/javahongxi/whatsgo/lang/queue"
+	"github.com/javahongxi/golab/lang/queue"
 )
 
 func main() {

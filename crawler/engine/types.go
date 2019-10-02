@@ -1,6 +1,6 @@
 package engine
 
-import "github.com/javahongxi/whatsgo/crawler/config"
+import "github.com/javahongxi/golab/crawler/config"
 
 type ParserFunc func(
 	contents []byte, url string) ParseResult

@@ -10,13 +10,13 @@ import (
 
 	"strings"
 
-	"github.com/javahongxi/whatsgo/crawler/config"
-	"github.com/javahongxi/whatsgo/crawler/engine"
-	"github.com/javahongxi/whatsgo/crawler/scheduler"
-	"github.com/javahongxi/whatsgo/crawler/zhenai/parser"
-	itemsaver "github.com/javahongxi/whatsgo/crawler_distributed/persist/client"
-	"github.com/javahongxi/whatsgo/crawler_distributed/rpcsupport"
-	worker "github.com/javahongxi/whatsgo/crawler_distributed/worker/client"
+	"github.com/javahongxi/golab/crawler/config"
+	"github.com/javahongxi/golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler/scheduler"
+	"github.com/javahongxi/golab/crawler/zhenai/parser"
+	itemsaver "github.com/javahongxi/golab/crawler_distributed/persist/client"
+	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
+	worker "github.com/javahongxi/golab/crawler_distributed/worker/client"
 )
 
 var (

@@ -6,7 +6,7 @@ import (
 	"net/rpc"
 	"net/rpc/jsonrpc"
 
-	"github.com/javahongxi/whatsgo/lang/rpc"
+	"github.com/javahongxi/golab/lang/rpc"
 )
 
 func main() {

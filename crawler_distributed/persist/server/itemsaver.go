@@ -7,9 +7,9 @@ import (
 
 	"flag"
 
-	"github.com/javahongxi/whatsgo/crawler/config"
-	"github.com/javahongxi/whatsgo/crawler_distributed/persist"
-	"github.com/javahongxi/whatsgo/crawler_distributed/rpcsupport"
+	"github.com/javahongxi/golab/crawler/config"
+	"github.com/javahongxi/golab/crawler_distributed/persist"
+	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
 	"gopkg.in/olivere/elastic.v5"
 )
 

@@ -7,9 +7,9 @@ import (
 
 	"flag"
 
-	"github.com/javahongxi/whatsgo/crawler/fetcher"
-	"github.com/javahongxi/whatsgo/crawler_distributed/rpcsupport"
-	"github.com/javahongxi/whatsgo/crawler_distributed/worker"
+	"github.com/javahongxi/golab/crawler/fetcher"
+	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
+	"github.com/javahongxi/golab/crawler_distributed/worker"
 )
 
 var port = flag.Int("port", 0,

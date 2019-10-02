@@ -3,9 +3,9 @@ package client
 import (
 	"net/rpc"
 
-	"github.com/javahongxi/whatsgo/crawler/engine"
-	"github.com/javahongxi/whatsgo/crawler_distributed/config"
-	"github.com/javahongxi/whatsgo/crawler_distributed/worker"
+	"github.com/javahongxi/golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler_distributed/config"
+	"github.com/javahongxi/golab/crawler_distributed/worker"
 )
 
 func CreateProcessor(

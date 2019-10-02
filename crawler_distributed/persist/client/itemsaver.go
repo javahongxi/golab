@@ -3,9 +3,9 @@ package client
 import (
 	"log"
 
-	"github.com/javahongxi/whatsgo/crawler/engine"
-	"github.com/javahongxi/whatsgo/crawler_distributed/config"
-	"github.com/javahongxi/whatsgo/crawler_distributed/rpcsupport"
+	"github.com/javahongxi/golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler_distributed/config"
+	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
 )
 
 func ItemSaver(

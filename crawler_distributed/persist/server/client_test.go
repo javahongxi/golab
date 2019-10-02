@@ -5,10 +5,10 @@ import (
 
 	"time"
 
-	"github.com/javahongxi/whatsgo/crawler/engine"
-	"github.com/javahongxi/whatsgo/crawler/model"
-	"github.com/javahongxi/whatsgo/crawler_distributed/config"
-	"github.com/javahongxi/whatsgo/crawler_distributed/rpcsupport"
+	"github.com/javahongxi/golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler/model"
+	"github.com/javahongxi/golab/crawler_distributed/config"
+	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
 )
 
 func TestItemSaver(t *testing.T) {

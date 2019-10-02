@@ -5,8 +5,8 @@ import (
 
 	"time"
 
-	"github.com/javahongxi/whatsgo/lang/retriever/mock"
-	"github.com/javahongxi/whatsgo/lang/retriever/real"
+	"github.com/javahongxi/golab/lang/retriever/mock"
+	"github.com/javahongxi/golab/lang/retriever/real"
 )
 
 type Retriever interface {

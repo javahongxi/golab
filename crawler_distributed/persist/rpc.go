@@ -3,8 +3,8 @@ package persist
 import (
 	"log"
 
-	"github.com/javahongxi/whatsgo/crawler/engine"
-	"github.com/javahongxi/whatsgo/crawler/persist"
+	"github.com/javahongxi/golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler/persist"
 	"gopkg.in/olivere/elastic.v5"
 )
 
