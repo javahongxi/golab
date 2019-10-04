@@ -27,7 +27,7 @@ func download(r Retriever) string {
 func post(poster Poster) {
 	poster.Post(url,
 		map[string]string{
-			"name":   "ccmouse",
+			"name":   "javahongxi",
 			"course": "golang",
 		})
 }
