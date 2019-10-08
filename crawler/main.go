@@ -22,9 +22,7 @@ func main() {
 	}
 
 	e.Run(engine.Request{
-		Url: "http://www.starter.url.here",
-		Parser: engine.NewFuncParser(
-			parser.ParseCityList,
-			config.ParseCityList),
+		Url:    "http://www.starter.url.here",
+		Parser: engine.NewFuncParser(parser.ParseCityList, config.ParseCityList),
 	})
 }
