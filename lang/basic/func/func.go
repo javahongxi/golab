@@ -19,8 +19,7 @@ func eval(a, b int, op string) (int, error) {
 		q, _ := div(a, b)
 		return q, nil
 	default:
-		return 0, fmt.Errorf(
-			"unsupported operation: %s", op)
+		return 0, fmt.Errorf("unsupported operation: %s", op)
 	}
 }
 
@@ -31,8 +30,7 @@ func div(a, b int) (q, r int) {
 func apply(op func(int, int) int, a, b int) int {
 	p := reflect.ValueOf(op).Pointer()
 	opName := runtime.FuncForPC(p).Name()
-	fmt.Printf("Calling function %s with args "+
-		"(%d, %d)\n", opName, a, b)
+	fmt.Printf("Calling function %s with args (%d, %d)\n", opName, a, b)
 
 	return op(a, b)
 }
@@ -61,8 +59,7 @@ func main() {
 
 	fmt.Println("pow(3, 4) is:", apply(
 		func(a int, b int) int {
-			return int(math.Pow(
-				float64(a), float64(b)))
+			return int(math.Pow(float64(a), float64(b)))
 		}, 3, 4))
 
 	fmt.Println("1+2+...+5 =", sum(1, 2, 3, 4, 5))

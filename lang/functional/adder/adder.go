@@ -24,7 +24,6 @@ func main() {
 	for i := 0; i < 10; i++ {
 		var s int
 		s, a = a(i)
-		fmt.Printf("0 + 1 + ... + %d = %d\n",
-			i, s)
+		fmt.Printf("0 + 1 + ... + %d = %d\n", i, s)
 	}
 }

@@ -26,8 +26,7 @@ func TestSubstr(t *testing.T) {
 	for _, tt := range tests {
 		actual := lengthOfNonRepeatingSubStr(tt.s)
 		if actual != tt.ans {
-			t.Errorf("got %d for input %s; "+
-				"expected %d",
+			t.Errorf("got %d for input %s; expected %d",
 				actual, tt.s, tt.ans)
 		}
 	}
@@ -45,8 +44,7 @@ func BenchmarkSubstr(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		actual := lengthOfNonRepeatingSubStr(s)
 		if actual != ans {
-			b.Errorf("got %d for input %s; "+
-				"expected %d",
+			b.Errorf("got %d for input %s; expected %d",
 				actual, s, ans)
 		}
 	}

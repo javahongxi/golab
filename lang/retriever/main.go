@@ -14,8 +14,7 @@ type Retriever interface {
 }
 
 type Poster interface {
-	Post(url string,
-		form map[string]string) string
+	Post(url string, form map[string]string) string
 }
 
 const url = "http://www.imooc.com"
@@ -65,8 +64,7 @@ func main() {
 		fmt.Println("r is not a mock retriever")
 	}
 
-	fmt.Println(
-		"Try a session with mockRetriever")
+	fmt.Println("Try a session with mockRetriever")
 	fmt.Println(session(&mockRetriever))
 }
 

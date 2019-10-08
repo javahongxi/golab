@@ -33,11 +33,9 @@ func main() {
 
 	fmt.Println("Deleting values")
 	name, ok := m["name"]
-	fmt.Printf("m[%q] before delete: %q, %v\n",
-		"name", name, ok)
+	fmt.Printf("m[%q] before delete: %q, %v\n", "name", name, ok)
 
 	delete(m, "name")
 	name, ok = m["name"]
-	fmt.Printf("m[%q] after delete: %q, %v\n",
-		"name", name, ok)
+	fmt.Printf("m[%q] after delete: %q, %v\n", "name", name, ok)
 }

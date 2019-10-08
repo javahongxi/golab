@@ -30,9 +30,7 @@ func errWrapper(
 		err := handler(writer, request)
 
 		if err != nil {
-			log.Printf("Error occurred "+
-				"handling request: %s",
-				err.Error())
+			log.Printf("Error occurred handling request: %s", err.Error())
 
 			// user error
 			if userErr, ok := err.(userError); ok {
@@ -52,8 +50,7 @@ func errWrapper(
 			default:
 				code = http.StatusInternalServerError
 			}
-			http.Error(writer,
-				http.StatusText(code), code)
+			http.Error(writer, http.StatusText(code), code)
 		}
 	}
 }
@@ -64,8 +61,7 @@ type userError interface {
 }
 
 func main() {
-	http.HandleFunc("/",
-		errWrapper(filelisting.HandleFileList))
+	http.HandleFunc("/", errWrapper(filelisting.HandleFileList))
 
 	err := http.ListenAndServe(":8888", nil)
 	if err != nil {

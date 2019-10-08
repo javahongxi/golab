@@ -13,8 +13,7 @@ func (node Node) Print() {
 
 func (node *Node) SetValue(value int) {
 	if node == nil {
-		fmt.Println("Setting Value to nil " +
-			"node. Ignored.")
+		fmt.Println("Setting Value to nil node. Ignored.")
 		return
 	}
 	node.Value = value

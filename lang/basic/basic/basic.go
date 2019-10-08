@@ -36,8 +36,7 @@ func variableShorter() {
 }
 
 func euler() {
-	fmt.Printf("%.3f\n",
-		cmplx.Exp(1i*math.Pi)+1)
+	fmt.Printf("%.3f\n", cmplx.Exp(1i*math.Pi)+1)
 }
 
 func triangle() {

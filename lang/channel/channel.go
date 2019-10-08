@@ -7,8 +7,7 @@ import (
 
 func worker(id int, c chan int) {
 	for n := range c {
-		fmt.Printf("Worker %d received %c\n",
-			id, n)
+		fmt.Printf("Worker %d received %c\n", id, n)
 	}
 }
 

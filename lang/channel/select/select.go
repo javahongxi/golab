@@ -11,9 +11,7 @@ func generator() chan int {
 	go func() {
 		i := 0
 		for {
-			time.Sleep(
-				time.Duration(rand.Intn(1500)) *
-					time.Millisecond)
+			time.Sleep(time.Duration(rand.Intn(1500)) * time.Millisecond)
 			out <- i
 			i++
 		}
@@ -24,8 +22,7 @@ func generator() chan int {
 func worker(id int, c chan int) {
 	for n := range c {
 		time.Sleep(time.Second)
-		fmt.Printf("Worker %d received %d\n",
-			id, n)
+		fmt.Printf("Worker %d received %d\n", id, n)
 	}
 }
 
@@ -61,8 +58,7 @@ func main() {
 		case <-time.After(800 * time.Millisecond):
 			fmt.Println("timeout")
 		case <-tick:
-			fmt.Println(
-				"queue len =", len(values))
+			fmt.Println("queue len =", len(values))
 		case <-tm:
 			fmt.Println("bye")
 			return

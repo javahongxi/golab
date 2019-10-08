@@ -17,8 +17,7 @@ func (r *Retriever) Get(url string) string {
 		panic(err)
 	}
 
-	result, err := httputil.DumpResponse(
-		resp, true)
+	result, err := httputil.DumpResponse(resp, true)
 
 	resp.Body.Close()
 

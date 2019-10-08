@@ -82,12 +82,10 @@ func TestErrWrapper(t *testing.T) {
 func TestErrWrapperInServer(t *testing.T) {
 	for _, tt := range tests {
 		f := errWrapper(tt.h)
-		server := httptest.NewServer(
-			http.HandlerFunc(f))
+		server := httptest.NewServer(http.HandlerFunc(f))
 		resp, _ := http.Get(server.URL)
 
-		verifyResponse(
-			resp, tt.code, tt.message, t)
+		verifyResponse(resp, tt.code, tt.message, t)
 	}
 }
 
@@ -98,8 +96,7 @@ func verifyResponse(resp *http.Response,
 	body := strings.Trim(string(b), "\n")
 	if resp.StatusCode != expectedCode ||
 		body != expectedMsg {
-		t.Errorf("expect (%d, %s); "+
-			"got (%d, %s)",
+		t.Errorf("expect (%d, %s); got (%d, %s)",
 			expectedCode, expectedMsg,
 			resp.StatusCode, body)
 	}

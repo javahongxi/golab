@@ -19,8 +19,7 @@ func main() {
 	}
 	fmt.Println()
 
-	fmt.Println("Rune count:",
-		utf8.RuneCountInString(s))
+	fmt.Println("Rune count:", utf8.RuneCountInString(s))
 
 	bytes := []byte(s)
 	for len(bytes) > 0 {

@@ -26,8 +26,7 @@ func HandleFileList(writer http.ResponseWriter,
 	if strings.Index(
 		request.URL.Path, prefix) != 0 {
 		return userError(
-			fmt.Sprintf("path %s must start "+
-				"with %s",
+			fmt.Sprintf("path %s must start with %s",
 				request.URL.Path, prefix))
 	}
 	path := request.URL.Path[len(prefix):]

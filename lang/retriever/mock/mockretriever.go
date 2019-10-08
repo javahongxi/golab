@@ -7,8 +7,7 @@ type Retriever struct {
 }
 
 func (r *Retriever) String() string {
-	return fmt.Sprintf(
-		"Retriever: {Contents=%s}", r.Contents)
+	return fmt.Sprintf("Retriever: {Contents=%s}", r.Contents)
 }
 
 func (r *Retriever) Post(url string,
