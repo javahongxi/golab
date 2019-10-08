@@ -9,7 +9,9 @@
 
 ### Go Projects
 - https://github.com/kubernetes/kubernetes
-- https://github.com/hashicorp/consul
 - https://github.com/gin-gonic/gin
+- https://github.com/hashicorp/consul
+- https://github.com/micro/go-micro
+- https://github.com/nsqio/nsq
 
 https://golang.google.cn/
