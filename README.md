@@ -9,6 +9,7 @@
 
 ### Go Projects
 - https://github.com/moby/moby
+- https://github.com/docker/docker-ce
 - https://github.com/kubernetes/kubernetes
 - https://github.com/gin-gonic/gin
 - https://github.com/hashicorp/consul
