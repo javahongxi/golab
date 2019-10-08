@@ -9,8 +9,7 @@ import (
 )
 
 func TestParseProfile(t *testing.T) {
-	contents, err := ioutil.ReadFile(
-		"profile_test_data.html.txt")
+	contents, err := ioutil.ReadFile("profile_test_data.html.txt")
 
 	if err != nil {
 		panic(err)
@@ -21,8 +20,7 @@ func TestParseProfile(t *testing.T) {
 		"安静的雪")
 
 	if len(result.Items) != 1 {
-		t.Errorf("Items should contain 1 "+
-			"element; but was %v", result.Items)
+		t.Errorf("Items should contain 1 element; but was %v", result.Items)
 	}
 
 	actual := result.Items[0]
@@ -49,7 +47,6 @@ func TestParseProfile(t *testing.T) {
 	}
 
 	if actual != expected {
-		t.Errorf("expected %v; but was %v",
-			expected, actual)
+		t.Errorf("expected %v; but was %v", expected, actual)
 	}
 }

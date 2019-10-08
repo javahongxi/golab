@@ -38,77 +38,60 @@ var guessRe = regexp.MustCompile(
 var idUrlRe = regexp.MustCompile(
 	`http://album.zhenai.com/u/([\d]+)`)
 
-func parseProfile(
-	contents []byte, url string,
+func parseProfile(contents []byte, url string,
 	name string) engine.ParseResult {
 	profile := model.Profile{}
 	profile.Name = name
 
-	age, err := strconv.Atoi(
-		extractString(contents, ageRe))
+	age, err := strconv.Atoi(extractString(contents, ageRe))
 	if err == nil {
 		profile.Age = age
 	}
 
-	height, err := strconv.Atoi(
-		extractString(contents, heightRe))
+	height, err := strconv.Atoi(extractString(contents, heightRe))
 	if err == nil {
 		profile.Height = height
 	}
 
-	weight, err := strconv.Atoi(
-		extractString(contents, weightRe))
+	weight, err := strconv.Atoi(extractString(contents, weightRe))
 	if err == nil {
 		profile.Weight = weight
 	}
 
-	profile.Income = extractString(
-		contents, incomeRe)
-	profile.Gender = extractString(
-		contents, genderRe)
-	profile.Car = extractString(
-		contents, carRe)
-	profile.Education = extractString(
-		contents, educationRe)
-	profile.Hokou = extractString(
-		contents, hokouRe)
-	profile.House = extractString(
-		contents, houseRe)
-	profile.Marriage = extractString(
-		contents, marriageRe)
-	profile.Occupation = extractString(
-		contents, occupationRe)
-	profile.Xinzuo = extractString(
-		contents, xinzuoRe)
+	profile.Income = extractString(contents, incomeRe)
+	profile.Gender = extractString(contents, genderRe)
+	profile.Car = extractString(contents, carRe)
+	profile.Education = extractString(contents, educationRe)
+	profile.Hokou = extractString(contents, hokouRe)
+	profile.House = extractString(contents, houseRe)
+	profile.Marriage = extractString(contents, marriageRe)
+	profile.Occupation = extractString(contents, occupationRe)
+	profile.Xinzuo = extractString(contents, xinzuoRe)
 
 	result := engine.ParseResult{
 		Items: []engine.Item{
 			{
-				Url:  url,
-				Type: "zhenai",
-				Id: extractString(
-					[]byte(url), idUrlRe),
+				Url:     url,
+				Type:    "zhenai",
+				Id:      extractString([]byte(url), idUrlRe),
 				Payload: profile,
 			},
 		},
 	}
 
-	matches := guessRe.FindAllSubmatch(
-		contents, -1)
+	matches := guessRe.FindAllSubmatch(contents, -1)
 	for _, m := range matches {
 		result.Requests = append(result.Requests,
 			engine.Request{
-				Url: string(m[1]),
-				Parser: NewProfileParser(
-					string(m[2])),
+				Url:    string(m[1]),
+				Parser: NewProfileParser(string(m[2])),
 			})
 	}
 
 	return result
 }
 
-func extractString(
-	contents []byte, re *regexp.Regexp) string {
+func extractString(contents []byte, re *regexp.Regexp) string {
 	match := re.FindSubmatch(contents)
 
 	if len(match) >= 2 {
@@ -122,8 +105,7 @@ type ProfileParser struct {
 	userName string
 }
 
-func (p *ProfileParser) Parse(
-	contents []byte,
+func (p *ProfileParser) Parse(contents []byte,
 	url string) engine.ParseResult {
 	return parseProfile(contents, url, p.userName)
 }
@@ -133,8 +115,7 @@ func (p *ProfileParser) Serialize() (
 	return config.ParseProfile, p.userName
 }
 
-func NewProfileParser(
-	name string) *ProfileParser {
+func NewProfileParser(name string) *ProfileParser {
 	return &ProfileParser{
 		userName: name,
 	}

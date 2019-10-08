@@ -18,8 +18,7 @@ import (
 )
 
 var (
-	rateLimiter = time.Tick(
-		time.Second / config.Qps)
+	rateLimiter    = time.Tick(time.Second / config.Qps)
 	verboseLogging = false
 )
 
@@ -39,15 +38,12 @@ func Fetch(url string) ([]byte, error) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return nil,
-			fmt.Errorf("wrong status code: %d",
-				resp.StatusCode)
+		return nil, fmt.Errorf("wrong status code: %d", resp.StatusCode)
 	}
 
 	bodyReader := bufio.NewReader(resp.Body)
 	e := determineEncoding(bodyReader)
-	utf8Reader := transform.NewReader(bodyReader,
-		e.NewDecoder())
+	utf8Reader := transform.NewReader(bodyReader, e.NewDecoder())
 	return ioutil.ReadAll(utf8Reader)
 }
 
@@ -58,7 +54,6 @@ func determineEncoding(
 		log.Printf("Fetcher error: %v", err)
 		return unicode.UTF8
 	}
-	e, _, _ := charset.DetermineEncoding(
-		bytes, "")
+	e, _, _ := charset.DetermineEncoding(bytes, "")
 	return e
 }

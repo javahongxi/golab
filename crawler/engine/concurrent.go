@@ -25,8 +25,7 @@ func (e *ConcurrentEngine) Run(seeds ...Request) {
 	e.Scheduler.Run()
 
 	for i := 0; i < e.WorkerCount; i++ {
-		e.createWorker(e.Scheduler.WorkerChan(),
-			out, e.Scheduler)
+		e.createWorker(e.Scheduler.WorkerChan(), out, e.Scheduler)
 	}
 
 	for _, r := range seeds {
@@ -60,8 +59,7 @@ func (e *ConcurrentEngine) createWorker(
 		for {
 			ready.WorkerReady(in)
 			request := <-in
-			result, err := e.RequestProcessor(
-				request)
+			result, err := e.RequestProcessor(request)
 			if err != nil {
 				continue
 			}

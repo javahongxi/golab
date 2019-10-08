@@ -9,8 +9,7 @@ import (
 )
 
 func main() {
-	itemChan, err := persist.ItemSaver(
-		config.ElasticIndex)
+	itemChan, err := persist.ItemSaver(config.ElasticIndex)
 	if err != nil {
 		panic(err)
 	}

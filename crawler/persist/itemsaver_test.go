@@ -36,8 +36,7 @@ func TestSave(t *testing.T) {
 
 	// TODO: Try to start up elastic search
 	// here using docker go client.
-	client, err := elastic.NewClient(
-		elastic.SetSniff(false))
+	client, err := elastic.NewClient(elastic.SetSniff(false))
 
 	if err != nil {
 		panic(err)
@@ -67,13 +66,11 @@ func TestSave(t *testing.T) {
 	var actual engine.Item
 	json.Unmarshal(*resp.Source, &actual)
 
-	actualProfile, _ := model.FromJsonObj(
-		actual.Payload)
+	actualProfile, _ := model.FromJsonObj(actual.Payload)
 	actual.Payload = actualProfile
 
 	// Verify result
 	if actual != expected {
-		t.Errorf("got %v; expected %v",
-			actual, expected)
+		t.Errorf("got %v; expected %v", actual, expected)
 	}
 }
