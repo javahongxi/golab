@@ -16,4 +16,4 @@
 - https://github.com/micro/go-micro
 - https://github.com/nsqio/nsq
 
-https://golang.google.cn/
+&copy; [hongxi.org](http://hongxi.org) | [golang.google.cn](https://golang.google.cn/)
