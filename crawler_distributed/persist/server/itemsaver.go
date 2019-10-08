@@ -13,8 +13,7 @@ import (
 	"gopkg.in/olivere/elastic.v5"
 )
 
-var port = flag.Int("port", 0,
-	"the port for me to listen on")
+var port = flag.Int("port", 0, "the port for me to listen on")
 
 func main() {
 	flag.Parse()
@@ -22,14 +21,11 @@ func main() {
 		fmt.Println("must specify a port")
 		return
 	}
-	log.Fatal(serveRpc(
-		fmt.Sprintf(":%d", *port),
-		config.ElasticIndex))
+	log.Fatal(serveRpc(fmt.Sprintf(":%d", *port), config.ElasticIndex))
 }
 
 func serveRpc(host, index string) error {
-	client, err := elastic.NewClient(
-		elastic.SetSniff(false))
+	client, err := elastic.NewClient(elastic.SetSniff(false))
 	if err != nil {
 		return err
 	}

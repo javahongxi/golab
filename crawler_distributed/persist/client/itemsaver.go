@@ -20,20 +20,15 @@ func ItemSaver(
 		itemCount := 0
 		for {
 			item := <-out
-			log.Printf("Item Saver: got item "+
-				"#%d: %v", itemCount, item)
+			log.Printf("Item Saver: got item #%d: %v", itemCount, item)
 			itemCount++
 
 			// Call RPC to save item
 			result := ""
-			err := client.Call(
-				config.ItemSaverRpc,
-				item, &result)
+			err := client.Call(config.ItemSaverRpc, item, &result)
 
 			if err != nil {
-				log.Printf("Item Saver: error "+
-					"saving item %v: %v",
-					item, err)
+				log.Printf("Item Saver: error saving item %v: %v", item, err)
 			}
 		}
 	}()

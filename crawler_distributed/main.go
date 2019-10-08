@@ -24,21 +24,18 @@ var (
 		"itemsaver_host", "", "itemsaver host")
 
 	workerHosts = flag.String(
-		"worker_hosts", "",
-		"worker hosts (comma separated)")
+		"worker_hosts", "", "worker hosts (comma separated)")
 )
 
 func main() {
 	flag.Parse()
 
-	itemChan, err := itemsaver.ItemSaver(
-		*itemSaverHost)
+	itemChan, err := itemsaver.ItemSaver(*itemSaverHost)
 	if err != nil {
 		panic(err)
 	}
 
-	pool, err := createClientPool(
-		strings.Split(*workerHosts, ","))
+	pool, err := createClientPool(strings.Split(*workerHosts, ","))
 	if err != nil {
 		panic(err)
 	}
@@ -60,8 +57,7 @@ func main() {
 	})
 }
 
-func createClientPool(
-	hosts []string) (chan *rpc.Client, error) {
+func createClientPool(hosts []string) (chan *rpc.Client, error) {
 	var clients []*rpc.Client
 	for _, h := range hosts {
 		client, err := rpcsupport.NewClient(h)
@@ -69,15 +65,12 @@ func createClientPool(
 			clients = append(clients, client)
 			log.Printf("Connected to %s", h)
 		} else {
-			log.Printf(
-				"Error connecting to %s: %v",
-				h, err)
+			log.Printf("Error connecting to %s: %v", h, err)
 		}
 	}
 
 	if len(clients) == 0 {
-		return nil, errors.New(
-			"no connections available")
+		return nil, errors.New("no connections available")
 	}
 	out := make(chan *rpc.Client)
 	go func() {

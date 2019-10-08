@@ -62,8 +62,7 @@ func DeserializeRequest(
 	}, nil
 }
 
-func DeserializeResult(
-	r ParseResult) engine.ParseResult {
+func DeserializeResult(r ParseResult) engine.ParseResult {
 	result := engine.ParseResult{
 		Items: r.Items,
 	}
@@ -71,39 +70,29 @@ func DeserializeResult(
 	for _, req := range r.Requests {
 		engineReq, err := DeserializeRequest(req)
 		if err != nil {
-			log.Printf("error deserializing "+
-				"request: %v", err)
+			log.Printf("error deserializing request: %v", err)
 			continue
 		}
-		result.Requests = append(result.Requests,
-			engineReq)
+		result.Requests = append(result.Requests, engineReq)
 	}
 	return result
 }
 
-func deserializeParser(
-	p SerializedParser) (engine.Parser, error) {
+func deserializeParser(p SerializedParser) (engine.Parser, error) {
 	switch p.Name {
 	case config.ParseCityList:
-		return engine.NewFuncParser(
-			parser.ParseCityList,
-			config.ParseCityList), nil
+		return engine.NewFuncParser(parser.ParseCityList, config.ParseCityList), nil
 	case config.ParseCity:
-		return engine.NewFuncParser(
-			parser.ParseCity,
-			config.ParseCity), nil
+		return engine.NewFuncParser(parser.ParseCity, config.ParseCity), nil
 	case config.NilParser:
 		return engine.NilParser{}, nil
 	case config.ParseProfile:
 		if userName, ok := p.Args.(string); ok {
-			return parser.NewProfileParser(
-				userName), nil
+			return parser.NewProfileParser(userName), nil
 		} else {
-			return nil, fmt.Errorf("invalid "+
-				"arg: %v", p.Args)
+			return nil, fmt.Errorf("invalid arg: %v", p.Args)
 		}
 	default:
-		return nil, errors.New(
-			"unknown parser name")
+		return nil, errors.New("unknown parser name")
 	}
 }

@@ -13,8 +13,7 @@ import (
 
 func TestCrawlService(t *testing.T) {
 	const host = ":9000"
-	go rpcsupport.ServeRpc(
-		host, worker.CrawlService{})
+	go rpcsupport.ServeRpc(host, worker.CrawlService{})
 	time.Sleep(time.Second)
 
 	client, err := rpcsupport.NewClient(host)
@@ -32,8 +31,7 @@ func TestCrawlService(t *testing.T) {
 		},
 	}
 	var result worker.ParseResult
-	err = client.Call(
-		rpcnames.CrawlServiceRpc, req, &result)
+	err = client.Call(rpcnames.CrawlServiceRpc, req, &result)
 
 	if err != nil {
 		t.Error(err)

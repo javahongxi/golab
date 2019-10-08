@@ -8,8 +8,7 @@ import (
 	"github.com/javahongxi/golab/crawler_distributed/worker"
 )
 
-func CreateProcessor(
-	clientChan chan *rpc.Client) engine.Processor {
+func CreateProcessor(clientChan chan *rpc.Client) engine.Processor {
 
 	return func(
 		req engine.Request) (
@@ -19,13 +18,11 @@ func CreateProcessor(
 
 		var sResult worker.ParseResult
 		c := <-clientChan
-		err := c.Call(config.CrawlServiceRpc,
-			sReq, &sResult)
+		err := c.Call(config.CrawlServiceRpc, sReq, &sResult)
 
 		if err != nil {
 			return engine.ParseResult{}, err
 		}
-		return worker.DeserializeResult(sResult),
-			nil
+		return worker.DeserializeResult(sResult), nil
 	}
 }

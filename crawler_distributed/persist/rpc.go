@@ -20,8 +20,7 @@ func (s *ItemSaverService) Save(
 	if err == nil {
 		*result = "ok"
 	} else {
-		log.Printf("Error saving item %v: %v",
-			item, err)
+		log.Printf("Error saving item %v: %v", item, err)
 	}
 	return err
 }
