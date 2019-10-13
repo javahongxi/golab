@@ -11,6 +11,7 @@
 - https://github.com/moby/moby
 - https://github.com/docker/docker-ce
 - https://github.com/kubernetes/kubernetes
+- https://github.com/etcd-io/etcd
 - https://github.com/gin-gonic/gin
 - https://github.com/hashicorp/consul
 - https://github.com/micro/go-micro
