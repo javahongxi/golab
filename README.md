@@ -15,5 +15,7 @@
 - https://github.com/hashicorp/consul
 - https://github.com/micro/go-micro
 - https://github.com/nsqio/nsq
+- https://github.com/elastic/beats
+- https://github.com/pingcap/tidb
 
 &copy; [hongxi.org](http://hongxi.org) | [golang.google.cn](https://golang.google.cn/)
