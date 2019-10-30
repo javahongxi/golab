@@ -11,11 +11,13 @@
 - https://github.com/moby/moby
 - https://github.com/docker/docker-ce
 - https://github.com/kubernetes/kubernetes
+- https://github.com/etcd-io/etcd
 - https://github.com/gin-gonic/gin
 - https://github.com/hashicorp/consul
 - https://github.com/micro/go-micro
 - https://github.com/nsqio/nsq
 - https://github.com/elastic/beats
 - https://github.com/pingcap/tidb
+- https://github.com/CodisLabs/codis
 
 &copy; [hongxi.org](http://hongxi.org) | [golang.google.cn](https://golang.google.cn/)
