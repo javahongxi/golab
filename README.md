@@ -19,5 +19,6 @@
 - https://github.com/elastic/beats
 - https://github.com/pingcap/tidb
 - https://github.com/CodisLabs/codis
+- https://github.com/baidu/bfe
 
 &copy; [hongxi.org](http://hongxi.org) | [golang.google.cn](https://golang.google.cn/)
