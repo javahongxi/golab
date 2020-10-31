@@ -19,7 +19,3 @@ func Locate(name string) string {
 	s, _ := strconv.Unquote(string(msg.Body))
 	return s
 }
-
-func Exists(name string) bool {
-	return Locate(name) != ""
-}
