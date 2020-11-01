@@ -22,4 +22,4 @@
 - https://github.com/CodisLabs/codis
 - https://github.com/baidu/bfe
 
-&copy; [hongxi.org](http://hongxi.org) | [golang.google.cn](https://golang.google.cn/)
+&copy; [hongxi.org](http://hongxi.org) | [go.hongxi.org](http://go.hongxi.org)
