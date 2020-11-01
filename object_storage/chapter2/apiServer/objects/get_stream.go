@@ -2,8 +2,8 @@ package objects
 
 import (
 	"fmt"
-	"github.com/javahongxi/golab/common/objectstream"
 	"github.com/javahongxi/golab/object_storage/chapter2/apiServer/locate"
+	"github.com/javahongxi/golab/objectstream"
 	"io"
 )
 

@@ -4,7 +4,6 @@
 
 ### About GoLab
 - lang: Go语法学习
-- common: 基础封装
 - crawler: 爬虫项目
 - crawler_distributed: 爬虫项目分布式版
 - object_storage: 分布式对象存储简单实现
