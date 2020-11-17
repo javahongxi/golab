@@ -10,6 +10,10 @@ type myTreeNode struct {
 	*tree.Node
 }
 
+func (myNode *myTreeNode) Traverse() {
+	fmt.Println("This method is shadowed")
+}
+
 func (myNode *myTreeNode) postOrder() {
 	if myNode == nil || myNode.Node == nil {
 		return
