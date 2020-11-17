@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/javahongxi/golab/crawler/config"
-	"github.com/javahongxi/golab/crawler/engine"
-	"github.com/javahongxi/golab/crawler/zhenai/parser"
+	"golab/crawler/config"
+	"golab/crawler/engine"
+	"golab/crawler/zhenai/parser"
 )
 
 type SerializedParser struct {

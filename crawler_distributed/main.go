@@ -10,13 +10,13 @@ import (
 
 	"strings"
 
-	"github.com/javahongxi/golab/crawler/config"
-	"github.com/javahongxi/golab/crawler/engine"
-	"github.com/javahongxi/golab/crawler/scheduler"
-	"github.com/javahongxi/golab/crawler/zhenai/parser"
-	itemsaver "github.com/javahongxi/golab/crawler_distributed/persist/client"
-	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
-	worker "github.com/javahongxi/golab/crawler_distributed/worker/client"
+	"golab/crawler/config"
+	"golab/crawler/engine"
+	"golab/crawler/scheduler"
+	"golab/crawler/zhenai/parser"
+	itemsaver "golab/crawler_distributed/persist/client"
+	"golab/crawler_distributed/rpcsupport"
+	worker "golab/crawler_distributed/worker/client"
 )
 
 var (

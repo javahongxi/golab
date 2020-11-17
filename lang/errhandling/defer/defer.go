@@ -6,7 +6,7 @@ import (
 
 	"bufio"
 
-	"github.com/javahongxi/golab/lang/functional/fib"
+	"golab/lang/functional/fib"
 )
 
 func tryDefer() {

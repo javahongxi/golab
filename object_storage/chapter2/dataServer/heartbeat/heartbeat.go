@@ -1,7 +1,7 @@
 package heartbeat
 
 import (
-	"github.com/javahongxi/golab/rabbitmq"
+	"golab/rabbitmq"
 	"os"
 	"time"
 )

@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"github.com/javahongxi/golab/crawler/engine"
-	"github.com/javahongxi/golab/crawler/model"
+	"golab/crawler/engine"
+	"golab/crawler/model"
 
 	"io/ioutil"
 	"testing"

@@ -3,8 +3,8 @@ package parser
 import (
 	"regexp"
 
-	"github.com/javahongxi/golab/crawler/config"
-	"github.com/javahongxi/golab/crawler/engine"
+	"golab/crawler/config"
+	"golab/crawler/engine"
 )
 
 const cityListRe = `<a href="(http://www.zhenai.com/zhenghun/[0-9a-z]+)"[^>]*>([^<]+)</a>`

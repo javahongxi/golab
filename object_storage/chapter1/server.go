@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/javahongxi/golab/object_storage/chapter1/objects"
+	"golab/object_storage/chapter1/objects"
 	"log"
 	"net/http"
 	"os"

@@ -1,7 +1,7 @@
 package locate
 
 import (
-	"github.com/javahongxi/golab/rabbitmq"
+	"golab/rabbitmq"
 	"os"
 	"strconv"
 	"time"

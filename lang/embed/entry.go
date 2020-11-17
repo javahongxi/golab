@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/javahongxi/golab/lang/tree"
+	"golab/lang/tree"
 )
 
 type myTreeNode struct {

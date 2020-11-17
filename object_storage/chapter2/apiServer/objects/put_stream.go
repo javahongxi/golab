@@ -2,8 +2,8 @@ package objects
 
 import (
 	"fmt"
-	"github.com/javahongxi/golab/object_storage/chapter2/apiServer/heartbeat"
-	"github.com/javahongxi/golab/objectstream"
+	"golab/object_storage/chapter2/apiServer/heartbeat"
+	"golab/objectstream"
 )
 
 func putStream(object string) (*objectstream.PutStream, error) {

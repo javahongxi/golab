@@ -7,9 +7,9 @@ import (
 
 	"flag"
 
-	"github.com/javahongxi/golab/crawler/fetcher"
-	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
-	"github.com/javahongxi/golab/crawler_distributed/worker"
+	"golab/crawler/fetcher"
+	"golab/crawler_distributed/rpcsupport"
+	"golab/crawler_distributed/worker"
 )
 
 var port = flag.Int("port", 0, "the port for me to listen on")

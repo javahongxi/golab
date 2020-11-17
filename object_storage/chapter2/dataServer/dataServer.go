@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/javahongxi/golab/object_storage/chapter2/dataServer/heartbeat"
-	"github.com/javahongxi/golab/object_storage/chapter2/dataServer/locate"
-	"github.com/javahongxi/golab/object_storage/chapter2/dataServer/objects"
+	"golab/object_storage/chapter2/dataServer/heartbeat"
+	"golab/object_storage/chapter2/dataServer/locate"
+	"golab/object_storage/chapter2/dataServer/objects"
 	"log"
 	"net/http"
 	"os"

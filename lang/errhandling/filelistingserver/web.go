@@ -6,7 +6,7 @@ import (
 	_ "net/http/pprof"
 	"os"
 
-	"github.com/javahongxi/golab/lang/errhandling/filelistingserver/filelisting"
+	"golab/lang/errhandling/filelistingserver/filelisting"
 )
 
 type appHandler func(writer http.ResponseWriter,

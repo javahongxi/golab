@@ -1,6 +1,6 @@
 package scheduler
 
-import "github.com/javahongxi/golab/crawler/engine"
+import "golab/crawler/engine"
 
 type QueuedScheduler struct {
 	requestChan chan engine.Request

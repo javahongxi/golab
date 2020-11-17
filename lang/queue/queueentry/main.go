@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/javahongxi/golab/lang/queue"
+	"golab/lang/queue"
 )
 
 func main() {
