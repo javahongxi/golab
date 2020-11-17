@@ -1,6 +1,6 @@
 # golab
 
-`go get github.com/javahongxi/golab`
+`go get -u github.com/javahongxi/golab`
 
 ### About GoLab
 - lang: Go语法学习
