@@ -36,7 +36,10 @@ func main() {
 	root.Right.Left.SetValue(4)
 
 	fmt.Print("In-order traversal: ")
+	fmt.Print("root.Traverse(): ")
 	root.Traverse()
+	fmt.Print("root.Node.Traverse(): ")
+	root.Node.Traverse()
 
 	fmt.Print("My own post-order traversal: ")
 	root.postOrder()
