@@ -6,7 +6,6 @@
 - lang: Go语法学习
 - crawler: 爬虫项目
 - crawler_distributed: 爬虫项目分布式版
-- object_storage: 分布式对象存储简单实现
 
 ### Go Projects
 - https://github.com/moby/moby
