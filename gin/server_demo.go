@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"math/rand"
+	"net/http"
 	"time"
 )
 
@@ -38,10 +39,10 @@ func main() {
 		if rid, exists := c.Get(keyRequestId); exists {
 			h[keyRequestId] = rid
 		}
-		c.JSON(200, h)
+		c.JSON(http.StatusOK, h)
 	})
 	r.GET("/hello", func(c *gin.Context) {
-		c.String(200, "hello")
+		c.String(http.StatusOK, "hello")
 	})
 	r.Run()
 }
