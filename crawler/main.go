@@ -1,11 +1,11 @@
 package main
 
 import (
-	"golab/crawler/config"
-	"golab/crawler/engine"
-	"golab/crawler/persist"
-	"golab/crawler/scheduler"
-	"golab/crawler/zhenai/parser"
+	"github.com/javahongxi/golab/crawler/config"
+	"github.com/javahongxi/golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler/persist"
+	"github.com/javahongxi/golab/crawler/scheduler"
+	"github.com/javahongxi/golab/crawler/zhenai/parser"
 )
 
 func main() {

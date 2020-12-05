@@ -6,7 +6,7 @@ import (
 
 	"errors"
 
-	"golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler/engine"
 	"gopkg.in/olivere/elastic.v5"
 )
 

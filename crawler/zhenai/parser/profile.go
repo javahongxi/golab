@@ -4,9 +4,9 @@ import (
 	"regexp"
 	"strconv"
 
-	"golab/crawler/config"
-	"golab/crawler/engine"
-	"golab/crawler/model"
+	"github.com/javahongxi/golab/crawler/config"
+	"github.com/javahongxi/golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler/model"
 )
 
 var ageRe = regexp.MustCompile(

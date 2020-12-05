@@ -7,8 +7,8 @@ import (
 
 	"encoding/json"
 
-	"golab/crawler/engine"
-	"golab/crawler/model"
+	"github.com/javahongxi/golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler/model"
 	"gopkg.in/olivere/elastic.v5"
 )
 

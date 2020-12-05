@@ -1,6 +1,6 @@
 package scheduler
 
-import "golab/crawler/engine"
+import "github.com/javahongxi/golab/crawler/engine"
 
 type SimpleScheduler struct {
 	workerChan chan engine.Request

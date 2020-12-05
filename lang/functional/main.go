@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"golab/lang/functional/fib"
+	"github.com/javahongxi/golab/lang/functional/fib"
 )
 
 type intGen func() int

@@ -5,7 +5,7 @@ import (
 	"net"
 	"net/rpc/jsonrpc"
 
-	"golab/lang/rpc"
+	"github.com/javahongxi/golab/lang/rpc"
 )
 
 func main() {

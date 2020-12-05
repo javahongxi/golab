@@ -3,8 +3,8 @@ package parser
 import (
 	"regexp"
 
-	"golab/crawler/config"
-	"golab/crawler/engine"
+	"github.com/javahongxi/golab/crawler/config"
+	"github.com/javahongxi/golab/crawler/engine"
 )
 
 var (

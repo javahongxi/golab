@@ -3,7 +3,7 @@ package engine
 import (
 	"log"
 
-	"golab/crawler/fetcher"
+	"github.com/javahongxi/golab/crawler/fetcher"
 )
 
 func Worker(r Request) (ParseResult, error) {

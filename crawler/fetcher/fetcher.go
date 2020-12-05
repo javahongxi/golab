@@ -10,7 +10,7 @@ import (
 
 	"time"
 
-	"golab/crawler/config"
+	"github.com/javahongxi/golab/crawler/config"
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/encoding/unicode"

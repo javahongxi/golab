@@ -1,6 +1,6 @@
 package worker
 
-import "golab/crawler/engine"
+import "github.com/javahongxi/golab/crawler/engine"
 
 type CrawlService struct{}
 

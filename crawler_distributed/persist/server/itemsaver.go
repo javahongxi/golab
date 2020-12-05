@@ -7,9 +7,9 @@ import (
 
 	"flag"
 
-	"golab/crawler/config"
-	"golab/crawler_distributed/persist"
-	"golab/crawler_distributed/rpcsupport"
+	"github.com/javahongxi/golab/crawler/config"
+	"github.com/javahongxi/golab/crawler_distributed/persist"
+	"github.com/javahongxi/golab/crawler_distributed/rpcsupport"
 	"gopkg.in/olivere/elastic.v5"
 )
 

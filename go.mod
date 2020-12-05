@@ -1,4 +1,4 @@
-module golab
+module github.com/javahongxi/golab
 
 go 1.15
 
