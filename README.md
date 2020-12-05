@@ -1,8 +1,8 @@
-# github.com/javahongxi/golab
+# golab
 
-`go get -u github.com/javahongxi/github.com/javahongxi/golab`
+`go get -u github.com/javahongxi/golab`
 
-### About github.com/javahongxi/golab
+### About GoLab
 - lang: Go语法学习
 - crawler: 爬虫项目
 - crawler_distributed: 爬虫项目分布式版
