@@ -1,6 +1,8 @@
 # golab
-`git clone https://github.com/javahongxi/golab.git` <br>
-`go get ./...`
+```
+git clone https://github.com/javahongxi/golab.git
+go get ./...
+```
 
 ### About GoLab
 - lang: Go语法学习
