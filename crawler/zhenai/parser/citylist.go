@@ -7,7 +7,7 @@ import (
 	"github.com/javahongxi/golab/crawler/engine"
 )
 
-const cityListRe = `<a href="(http://www.zhenai.com/zhenghun/[0-9a-z]+)"[^>]*>([^<]+)</a>`
+const cityListRe = `<a href="(http://localhost:8080/mock/www.zhenai.com/zhenghun/[0-9a-z]+)"[^>]*>([^<]+)</a>`
 
 func ParseCityList(
 	contents []byte, _ string) engine.ParseResult {

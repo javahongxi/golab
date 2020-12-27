@@ -11,7 +11,7 @@ var (
 	profileRe = regexp.MustCompile(
 		`<a href="(http://album.zhenai.com/u/[0-9]+)"[^>]*>([^<]+)</a>`)
 	cityUrlRe = regexp.MustCompile(
-		`href="(http://www.zhenai.com/zhenghun/[^"]+)"`)
+		`href="(http://localhost:8080/mock/www.zhenai.com/zhenghun/[^"]+)"`)
 )
 
 func ParseCity(contents []byte, _ string) engine.ParseResult {

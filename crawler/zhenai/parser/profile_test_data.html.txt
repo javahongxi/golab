@@ -118,14 +118,14 @@ $.ajax({
 
 <header id="jcZAHeader" class="header">
 	<section class="frameW top-bar clearfix">
-		<a class="logo" href="http://www.zhenai.com/" title="珍爱网"><i></i></a>
+		<a class="logo" href="http://localhost:8080/mock/www.zhenai.com/" title="珍爱网"><i></i></a>
 		<p class="ad-word">相亲无难事，珍爱有红娘</p>
 		<div class="tools">
 			<ul class="clearfix">
 				<li class="mobile"><a href="http://mo.zhenai.com" target="_blank" title="珍爱网app下载">手机版</a></li>
 				<li class="collect"><a href="javascript:;">收藏本站</a></li>
 				<li class="cust"><a href="javascript:;">在线客服</a></li>
-				<li><a href="http://www.zhenai.com/anquan/" target="_blank" >安全中心</a></li>
+				<li><a href="http://localhost:8080/mock/www.zhenai.com/anquan/" target="_blank" >安全中心</a></li>
 				
 				<li class="tel">红娘热线：4001-520520</li>
 			</ul>
@@ -719,13 +719,13 @@ closeDate();
 				
 					
 					<p class="breadNav">
-						当前位置：<a href="http://www.zhenai.com">珍爱首页</a><span>&gt;</span><a href="http://www.zhenai.com/zhenghun/aletai">阿勒泰征婚</a><span>&gt;</span><a href="http://www.zhenai.com/zhenghun/aletaishi">阿勒泰市征婚</a><span>&gt;</span><a href="http://www.zhenai.com/zhenghun/aletaishi/nv">阿勒泰市女士征婚</a>
+						当前位置：<a href="http://localhost:8080/mock/www.zhenai.com">珍爱首页</a><span>&gt;</span><a href="http://localhost:8080/mock/www.zhenai.com/zhenghun/aletai">阿勒泰征婚</a><span>&gt;</span><a href="http://localhost:8080/mock/www.zhenai.com/zhenghun/aletaishi">阿勒泰市征婚</a><span>&gt;</span><a href="http://localhost:8080/mock/www.zhenai.com/zhenghun/aletaishi/nv">阿勒泰市女士征婚</a>
 					</p>	
 
 					
 					
 				
-					<p>周边征婚：<a target="_blank" href="http://www.zhenai.com/zhenghun/xinjiang">新疆征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/aletai">阿勒泰征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/aletaishi">阿勒泰市征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/boertala">博尔塔拉征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/bayinguoleng">巴音郭楞征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/kezilesukeerkezi">克孜勒苏柯尔克孜征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/yili">伊犁征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/kashen">喀什征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/wulumuqi">乌鲁木齐征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/changji">昌吉征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/akesu">阿克苏征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/hami">哈密征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/kelamayi">克拉玛依征婚</a><a target="_blank" href="http://www.zhenai.com/zhenghun/hetian">和田征婚</a><br/></p>
+					<p>周边征婚：<a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/xinjiang">新疆征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/aletai">阿勒泰征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/aletaishi">阿勒泰市征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/boertala">博尔塔拉征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/bayinguoleng">巴音郭楞征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/kezilesukeerkezi">克孜勒苏柯尔克孜征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/yili">伊犁征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/kashen">喀什征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/wulumuqi">乌鲁木齐征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/changji">昌吉征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/akesu">阿克苏征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/hami">哈密征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/kelamayi">克拉玛依征婚</a><a target="_blank" href="http://localhost:8080/mock/www.zhenai.com/zhenghun/hetian">和田征婚</a><br/></p>
 				
 				</div>
 			</div>
@@ -735,8 +735,8 @@ closeDate();
 <footer class="footer">
 	<div class="frameW clearfix">
 		<div class="about">
-			<div class="quick"><a target="_blank" href="http://about.zhenai.com/" >关于我们</a>|<a target="_blank" href="http://contact.zhenai.com/" >联系我们</a>|<a target="_blank" href="http://zhenai.zhiye.com/" >加入我们</a>|<a target="_blank" href="http://about.zhenai.com/huoban" rel="nofollow">合作伙伴</a>|<a target="_blank" href="http://profile.zhenai.com/personal/getguestbookbegin.jsps" rel="nofollow">意见反馈</a>|<a href="http://www.zhenai.com/sitemap.html" target="_blank">网站地图</a>
-				|<a href="http://www.zhenai.com/ahelpcenter/index.jsp" target="_blank">帮助中心</a>|<a href="http://album.zhenai.com" target="_blank">珍爱会员</a>|<a href="http://city.zhenai.com/" target="_blank">珍爱相亲</a>|<a href="http://register.zhenai.com/register/serverrulenew.jsp" target="_blank">珍爱网服务协议</a>|<a href="http://register.zhenai.com/register/intimacy.jsp" target="_blank">个人信息保护政策</a></div>
+			<div class="quick"><a target="_blank" href="http://about.zhenai.com/" >关于我们</a>|<a target="_blank" href="http://contact.zhenai.com/" >联系我们</a>|<a target="_blank" href="http://zhenai.zhiye.com/" >加入我们</a>|<a target="_blank" href="http://about.zhenai.com/huoban" rel="nofollow">合作伙伴</a>|<a target="_blank" href="http://profile.zhenai.com/personal/getguestbookbegin.jsps" rel="nofollow">意见反馈</a>|<a href="http://localhost:8080/mock/www.zhenai.com/sitemap.html" target="_blank">网站地图</a>
+				|<a href="http://localhost:8080/mock/www.zhenai.com/ahelpcenter/index.jsp" target="_blank">帮助中心</a>|<a href="http://album.zhenai.com" target="_blank">珍爱会员</a>|<a href="http://city.zhenai.com/" target="_blank">珍爱相亲</a>|<a href="http://register.zhenai.com/register/serverrulenew.jsp" target="_blank">珍爱网服务协议</a>|<a href="http://register.zhenai.com/register/intimacy.jsp" target="_blank">个人信息保护政策</a></div>
 			<div class="brand grayL"><span>品牌：12年专业婚恋服务</span>&nbsp;&nbsp;<span>专业：庞大的资深红娘队伍</span>&nbsp;&nbsp;<span>真实：诚信会员验证体系</span></div>
 			<div class="contact grayL"><span>客服热线：4001-520-520（周一至周日：9:00-21:00）</span><span>客服信箱：kefu@zhenai.com</span></div>
 			<div class="contact grayL"><span><a style="color:#9f9f9f;" href="http://profile.zhenai.com/v2/sys/reportEntry.do" target="_blank" rel="nofollow">违法和不良信息举报</a></span>&nbsp;&nbsp;<span>违法和不良信息举报专线：4008829288</span>&nbsp;&nbsp;<span>举报信箱：<a style="color: #9f9f9f;" href="mailto:jubao@zhenai.com" class="underlines" rel="nofollow">jubao@zhenai.com</a></span></div>
