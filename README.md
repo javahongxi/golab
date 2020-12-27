@@ -8,6 +8,7 @@ go get ./...
 - lang: Go语法学习
 - crawler: 爬虫项目
 - crawler_distributed: 爬虫项目分布式版
+- pipeline: 搭建并行处理管道
 
 ### Related Projects
 - https://github.com/javahongxi/mockserver
