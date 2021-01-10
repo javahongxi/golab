@@ -24,7 +24,7 @@ func TestCrawlService(t *testing.T) {
 	// TODO: Use a fake fetcher to handle the url.
 	// So we don't get data from zhenai.com
 	req := worker.Request{
-		Url: "http://album.zhenai.com/u/108906739",
+		Url: "http://localhost:8080/mock/album.zhenai.com/u/108906739",
 		Parser: worker.SerializedParser{
 			Name: config.ParseProfile,
 			Args: "安静的雪",

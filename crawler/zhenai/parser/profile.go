@@ -34,9 +34,9 @@ var houseRe = regexp.MustCompile(
 var carRe = regexp.MustCompile(
 	`<td><span class="label">是否购车：</span><span field="">([^<]+)</span></td>`)
 var guessRe = regexp.MustCompile(
-	`<a class="exp-user-name"[^>]*href="(http://album.zhenai.com/u/[\d]+)">([^<]+)</a>`)
+	`<a class="exp-user-name"[^>]*href="(http://localhost:8080/mock/album.zhenai.com/u/[\d]+)">([^<]+)</a>`)
 var idUrlRe = regexp.MustCompile(
-	`http://album.zhenai.com/u/([\d]+)`)
+	`http://localhost:8080/mock/album.zhenai.com/u/([\d]+)`)
 
 func parseProfile(contents []byte, url string,
 	name string) engine.ParseResult {

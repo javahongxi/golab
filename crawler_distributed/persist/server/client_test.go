@@ -26,7 +26,7 @@ func TestItemSaver(t *testing.T) {
 
 	// Call save
 	item := engine.Item{
-		Url:  "http://album.zhenai.com/u/108906739",
+		Url:  "http://localhost:8080/mock/album.zhenai.com/u/108906739",
 		Type: "zhenai",
 		Id:   "108906739",
 		Payload: model.Profile{
