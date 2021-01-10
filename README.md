@@ -5,14 +5,14 @@ go get ./...
 ```
 
 ### About GoLab
-- lang: Go语法学习
+- lang: Go语法学习与经典示例
 - crawler: 爬虫项目
 - crawler_distributed: 爬虫项目分布式版
 - pipeline: 搭建并行处理管道
 
-### Related Projects
-- https://github.com/javahongxi/mockserver
-- https://github.com/javahongxi/goweb
+### 爬虫项目演示
+- 启动相亲网站 https://github.com/javahongxi/mockserver
+- 启动爬虫 crawler/main.go
 
 ### Go Projects
 - https://github.com/moby/moby
