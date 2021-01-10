@@ -10,6 +10,20 @@ import (
 	"gopkg.in/olivere/elastic.v5"
 )
 
+func ItemMockSaver() chan engine.Item {
+	out := make(chan engine.Item)
+	go func() {
+		itemCount := 0
+		for {
+			item := <-out
+			log.Printf("Item Saver: got item #%d: %v", itemCount, item)
+			itemCount++
+		}
+	}()
+
+	return out
+}
+
 func ItemSaver(
 	index string) (chan engine.Item, error) {
 	client, err := elastic.NewClient(
