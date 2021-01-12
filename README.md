@@ -46,6 +46,21 @@ cd crawler_distributed
 go run main.go --itemsaver_host=:9090 --worker_hosts=:9091,:9092
 ```
 
+### 并行处理管道演示
+示例：对大量数据的外部排序进行并行处理
+- 生成大量数据(写到文件)
+```shell
+go run pipeline/createfile/main.go
+```
+- 演示单机版并行处理
+```shell
+go run pipeline/demo/main.go
+```
+- 演示网络版并行处理
+```shell
+go run pipeline/netdemo/main.go
+```
+
 ### Go Projects
 - https://github.com/moby/moby
 - https://github.com/docker/docker-ce
