@@ -9,6 +9,7 @@ go get ./...
 - crawler: 爬虫项目单任务版及并发版
 - crawler_distributed: 爬虫项目分布式版
 - pipeline: 搭建并行处理管道
+- gin: The fastest full-featured web framework
 
 ### 爬虫项目并发版演示
 - 启动相亲网站 [mockserver](https://github.com/javahongxi/mockserver)
