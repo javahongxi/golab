@@ -6,7 +6,7 @@ require (
 	github.com/gin-gonic/gin v1.7.0
 	go.uber.org/zap v1.16.0
 	golang.org/x/net v0.0.0-20201110031124-69a78807bb2b
-	golang.org/x/text v0.3.4
+	golang.org/x/text v0.3.8
 	gopkg.in/olivere/elastic.v5 v5.0.86
 )
 
@@ -27,6 +27,6 @@ require (
 	go.uber.org/atomic v1.6.0 // indirect
 	go.uber.org/multierr v1.5.0 // indirect
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9 // indirect
-	golang.org/x/sys v0.0.0-20200930185726-fdedc70b468f // indirect
+	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
