@@ -78,4 +78,4 @@ go run pipeline/netdemo/main.go
 - https://github.com/caddyserver/caddy
 - https://github.com/cockroachdb/cockroach
 
-&copy; [hongxi.org](http://hongxi.org) | [go.hongxi.org](http://go.hongxi.org)
+&copy; [hongxi.org](http://hongxi.org)
