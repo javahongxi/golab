@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 )
 
 func grade(score int) string {
@@ -27,7 +27,7 @@ func main() {
 	// please check what current directory is,
 	// and change filename accordingly.
 	const filename = "lang/basic/branch/abc.txt"
-	if contents, err := ioutil.ReadFile(filename); err != nil {
+	if contents, err := os.ReadFile(filename); err != nil {
 		fmt.Println(err)
 	} else {
 		fmt.Printf("%s\n", contents)

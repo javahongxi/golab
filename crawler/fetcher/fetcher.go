@@ -3,11 +3,9 @@ package fetcher
 import (
 	"bufio"
 	"fmt"
-	"io/ioutil"
-	"net/http"
-
+	"io"
 	"log"
-
+	"net/http"
 	"time"
 
 	"github.com/javahongxi/golab/crawler/config"
@@ -44,7 +42,7 @@ func Fetch(url string) ([]byte, error) {
 	bodyReader := bufio.NewReader(resp.Body)
 	e := determineEncoding(bodyReader)
 	utf8Reader := transform.NewReader(bodyReader, e.NewDecoder())
-	return ioutil.ReadAll(utf8Reader)
+	return io.ReadAll(utf8Reader)
 }
 
 func determineEncoding(

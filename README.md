@@ -1,6 +1,7 @@
 # golab
 ```
 git clone https://github.com/javahongxi/golab.git
+cd golab
 go get ./...
 ```
 

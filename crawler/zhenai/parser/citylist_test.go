@@ -1,13 +1,12 @@
 package parser
 
 import (
+	"os"
 	"testing"
-
-	"io/ioutil"
 )
 
 func TestParseCityList(t *testing.T) {
-	contents, err := ioutil.ReadFile("citylist_test_data.html.txt")
+	contents, err := os.ReadFile("citylist_test_data.html.txt")
 
 	if err != nil {
 		panic(err)

@@ -1,15 +1,15 @@
 package parser
 
 import (
+	"os"
+	"testing"
+
 	"github.com/javahongxi/golab/crawler/engine"
 	"github.com/javahongxi/golab/crawler/model"
-
-	"io/ioutil"
-	"testing"
 )
 
 func TestParseProfile(t *testing.T) {
-	contents, err := ioutil.ReadFile("profile_test_data.html.txt")
+	contents, err := os.ReadFile("profile_test_data.html.txt")
 
 	if err != nil {
 		panic(err)

@@ -2,7 +2,7 @@ package filelisting
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 	"strings"
@@ -36,7 +36,7 @@ func HandleFileList(writer http.ResponseWriter,
 	}
 	defer file.Close()
 
-	all, err := ioutil.ReadAll(file)
+	all, err := io.ReadAll(file)
 	if err != nil {
 		return err
 	}

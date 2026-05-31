@@ -3,7 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -92,7 +92,7 @@ func TestErrWrapperInServer(t *testing.T) {
 func verifyResponse(resp *http.Response,
 	expectedCode int, expectedMsg string,
 	t *testing.T) {
-	b, _ := ioutil.ReadAll(resp.Body)
+	b, _ := io.ReadAll(resp.Body)
 	body := strings.Trim(string(b), "\n")
 	if resp.StatusCode != expectedCode ||
 		body != expectedMsg {
