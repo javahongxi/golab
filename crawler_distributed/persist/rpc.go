@@ -3,13 +3,13 @@ package persist
 import (
 	"log"
 
+	"github.com/elastic/go-elasticsearch/v8"
 	"github.com/javahongxi/golab/crawler/engine"
 	"github.com/javahongxi/golab/crawler/persist"
-	"gopkg.in/olivere/elastic.v5"
 )
 
 type ItemSaverService struct {
-	Client *elastic.Client
+	Client *elasticsearch.Client
 	Index  string
 }
 

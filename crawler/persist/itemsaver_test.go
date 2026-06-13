@@ -1,15 +1,12 @@
 package persist
 
 import (
+	"encoding/json"
 	"testing"
 
-	"context"
-
-	"encoding/json"
-
+	"github.com/elastic/go-elasticsearch/v8"
 	"github.com/javahongxi/golab/crawler/engine"
 	"github.com/javahongxi/golab/crawler/model"
-	"gopkg.in/olivere/elastic.v5"
 )
 
 func TestSave(t *testing.T) {
@@ -34,9 +31,10 @@ func TestSave(t *testing.T) {
 		},
 	}
 
-	// TODO: Try to start up elastic search
-	// here using docker go client.
-	client, err := elastic.NewClient(elastic.SetSniff(false))
+	cfg := elasticsearch.Config{
+		Addresses: []string{"http://localhost:9200"},
+	}
+	client, err := elasticsearch.NewClient(cfg)
 
 	if err != nil {
 		panic(err)
@@ -51,20 +49,33 @@ func TestSave(t *testing.T) {
 	}
 
 	// Fetch saved item
-	resp, err := client.Get().
-		Index(index).
-		Type(expected.Type).
-		Id(expected.Id).
-		Do(context.Background())
+	resp, err := client.Get(index, expected.Id)
 
 	if err != nil {
 		panic(err)
 	}
 
-	t.Logf("%s", *resp.Source)
+	defer resp.Body.Close()
+
+	if resp.IsError() {
+		panic("get document failed")
+	}
+
+	var result map[string]interface{}
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		panic(err)
+	}
+
+	t.Logf("%v", result)
+
+	source := result["_source"]
+	data, err := json.Marshal(source)
+	if err != nil {
+		panic(err)
+	}
 
 	var actual engine.Item
-	json.Unmarshal(*resp.Source, &actual)
+	json.Unmarshal(data, &actual)
 
 	actualProfile, _ := model.FromJsonObj(actual.Payload)
 	actual.Payload = actualProfile

@@ -1,13 +1,13 @@
 package persist
 
 import (
-	"context"
+	"bytes"
+	"encoding/json"
+	"errors"
 	"log"
 
-	"errors"
-
+	"github.com/elastic/go-elasticsearch/v8"
 	"github.com/javahongxi/golab/crawler/engine"
-	"gopkg.in/olivere/elastic.v5"
 )
 
 func ItemMockSaver() chan engine.Item {
@@ -26,9 +26,10 @@ func ItemMockSaver() chan engine.Item {
 
 func ItemSaver(
 	index string) (chan engine.Item, error) {
-	client, err := elastic.NewClient(
-		// Must turn off sniff in docker
-		elastic.SetSniff(false))
+	cfg := elasticsearch.Config{
+		Addresses: []string{"http://localhost:9200"},
+	}
+	client, err := elasticsearch.NewClient(cfg)
 
 	if err != nil {
 		return nil, err
@@ -52,22 +53,23 @@ func ItemSaver(
 	return out, nil
 }
 
-func Save(client *elastic.Client, index string,
+func Save(client *elasticsearch.Client, index string,
 	item engine.Item) error {
 
 	if item.Type == "" {
 		return errors.New("must supply Type")
 	}
 
-	indexService := client.Index().
-		Index(index).
-		Type(item.Type).
-		BodyJson(item)
-	if item.Id != "" {
-		indexService.Id(item.Id)
+	data, err := json.Marshal(item)
+	if err != nil {
+		return err
 	}
 
-	_, err := indexService.Do(context.Background())
+	if item.Id != "" {
+		_, err = client.Index(index, bytes.NewReader(data), client.Index.WithDocumentID(item.Id))
+	} else {
+		_, err = client.Index(index, bytes.NewReader(data))
+	}
 
 	return err
 }

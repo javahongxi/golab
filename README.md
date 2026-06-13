@@ -47,6 +47,11 @@ go run worker.go --port=9092
 cd crawler_distributed
 go run main.go --itemsaver_host=:9090 --worker_hosts=:9091,:9092
 ```
+- 查询ES
+```shell
+curl -X GET "localhost:9200/_cat/indices?v"
+curl -X GET "localhost:9200/dating_profile/_search?pretty"
+```
 
 ### 并行处理管道演示
 示例：对大量数据的外部排序进行并行处理
