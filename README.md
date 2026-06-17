@@ -13,7 +13,7 @@ go get ./...
 - crawler\_distributed: 爬虫项目分布式版
 - pipeline: 搭建并行处理管道
 - gin: 最快的 Go 语言全功能 Web 框架
-- gorm: **The fantastic ORM library**
+- gorm: The fantastic ORM library
 - grpc: 高性能、跨语言的RPC框架
 
 ### 爬虫项目并发版演示
