@@ -1,4 +1,5 @@
 # golab
+
 ```
 git clone https://github.com/javahongxi/golab.git
 cd golab
@@ -6,86 +7,113 @@ go get ./...
 ```
 
 ### About GoLab
+
 - lang: Go语法学习与经典示例
 - crawler: 爬虫项目单任务版及并发版
-- crawler_distributed: 爬虫项目分布式版
+- crawler\_distributed: 爬虫项目分布式版
 - pipeline: 搭建并行处理管道
-- gin: The fastest full-featured web framework
+- gin: 最快的 Go 语言全功能 Web 框架
+- gorm: **The fantastic ORM library**
+- grpc: 高性能、跨语言的RPC框架
 
 ### 爬虫项目并发版演示
+
 - 启动相亲网站 [mockserver](https://github.com/javahongxi/mockserver)
+
 ```shell
 go run mockserver/main.go
 ```
+
 - 启动爬虫
+
 ```shell
 go run crawler/main.go
 ```
 
 ### 爬虫项目分布式版演示
+
 - 启动相亲网站 [mockserver](https://github.com/javahongxi/mockserver)
+
 ```shell
 go run mockserver/main.go
 ```
+
 - 下载ES并本地启动
+
 ```shell
 bin/elasticsearch
 ```
+
 - 启动存储服务(数据存储到ES)
+
 ```shell
 cd crawler_distributed/persist/server
 go run itemsaver.go --port=9090
 ```
+
 - 启动多个worker服务(爬取数据)
+
 ```shell
 cd crawler_distributed/worker/server
 go run worker.go --port=9091
 go run worker.go --port=9092
 ```
+
 - 启动爬虫
+
 ```shell
 cd crawler_distributed
 go run main.go --itemsaver_host=:9090 --worker_hosts=:9091,:9092
 ```
+
 - 查询ES
+
 ```shell
 curl -X GET "localhost:9200/_cat/indices?v"
 curl -X GET "localhost:9200/dating_profile/_search?pretty"
 ```
 
 ### 并行处理管道演示
+
 示例：对大量数据的外部排序进行并行处理
+
 - 生成大量数据(写到文件)
+
 ```shell
 go run pipeline/createfile/main.go
 ```
+
 - 演示单机版并行处理
+
 ```shell
 go run pipeline/demo/main.go
 ```
+
 - 演示网络版并行处理
+
 ```shell
 go run pipeline/netdemo/main.go
 ```
 
 ### Go Projects
-- https://github.com/golang/go
-- https://github.com/moby/moby
-- https://github.com/kubernetes/kubernetes
-- https://github.com/etcd-io/etcd
-- https://github.com/gin-gonic/gin
-- https://github.com/hashicorp/consul
-- https://github.com/hashicorp/vault
-- https://github.com/grpc/grpc-go
-- https://github.com/nsqio/nsq
-- https://github.com/elastic/beats
-- https://github.com/prometheus/prometheus
-- https://github.com/minio/minio
-- https://github.com/coredns/coredns
-- https://github.com/pingcap/tidb
-- https://github.com/caddyserver/caddy
-- https://github.com/cockroachdb/cockroach
-- https://github.com/grafana/grafana
-- https://github.com/argoproj/argo-workflows
 
-&copy; [hongxi.org](http://hongxi.org)
+- <https://github.com/golang/go>
+- <https://github.com/moby/moby>
+- <https://github.com/kubernetes/kubernetes>
+- <https://github.com/etcd-io/etcd>
+- <https://github.com/gin-gonic/gin>
+- <https://github.com/hashicorp/consul>
+- <https://github.com/hashicorp/vault>
+- <https://github.com/grpc/grpc-go>
+- <https://github.com/nsqio/nsq>
+- <https://github.com/elastic/beats>
+- <https://github.com/prometheus/prometheus>
+- <https://github.com/minio/minio>
+- <https://github.com/coredns/coredns>
+- <https://github.com/pingcap/tidb>
+- <https://github.com/caddyserver/caddy>
+- <https://github.com/cockroachdb/cockroach>
+- <https://github.com/grafana/grafana>
+- <https://github.com/argoproj/argo-workflows>
+
+© [hongxi.org](http://hongxi.org)
