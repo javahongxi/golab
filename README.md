@@ -69,19 +69,23 @@ go run pipeline/netdemo/main.go
 ```
 
 ### Go Projects
+- https://github.com/golang/go
 - https://github.com/moby/moby
-- https://github.com/docker/docker-ce
 - https://github.com/kubernetes/kubernetes
 - https://github.com/etcd-io/etcd
 - https://github.com/gin-gonic/gin
 - https://github.com/hashicorp/consul
-- https://github.com/micro/go-micro
+- https://github.com/hashicorp/vault
+- https://github.com/grpc/grpc-go
 - https://github.com/nsqio/nsq
 - https://github.com/elastic/beats
+- https://github.com/prometheus/prometheus
+- https://github.com/minio/minio
+- https://github.com/coredns/coredns
 - https://github.com/pingcap/tidb
-- https://github.com/CodisLabs/codis
-- https://github.com/baidu/bfe
 - https://github.com/caddyserver/caddy
 - https://github.com/cockroachdb/cockroach
+- https://github.com/grafana/grafana
+- https://github.com/argoproj/argo-workflows
 
 &copy; [hongxi.org](http://hongxi.org)
