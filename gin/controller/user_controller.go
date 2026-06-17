@@ -1,11 +1,11 @@
 package controller
 
 import (
-	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/javahongxi/golab/gin/model"
+	"github.com/javahongxi/golab/gin/response"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 )
@@ -21,13 +21,13 @@ func NewUserController(repo model.UserRepository) *UserController {
 func (c *UserController) CreateUser(ctx *gin.Context) {
 	var req model.CreateUserRequest
 	if err := ctx.ShouldBindJSON(&req); err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		response.BadRequest(ctx, err.Error())
 		return
 	}
 
 	_, err := c.repo.FindByUsername(req.Username)
 	if err == nil {
-		ctx.JSON(http.StatusConflict, gin.H{"error": "username already exists"})
+		response.ErrorWithCode(ctx, 409, "username already exists")
 		return
 	}
 
@@ -40,55 +40,55 @@ func (c *UserController) CreateUser(ctx *gin.Context) {
 
 	if err := c.repo.Create(user); err != nil {
 		zap.L().Error("failed to create user", zap.Error(err))
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "failed to create user"})
+		response.ServerError(ctx, "failed to create user")
 		return
 	}
 
-	ctx.JSON(http.StatusCreated, user)
+	response.Success(ctx, user)
 }
 
 func (c *UserController) GetUser(ctx *gin.Context) {
 	id, err := strconv.ParseUint(ctx.Param("id"), 10, 64)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "invalid user ID"})
+		response.BadRequest(ctx, "invalid user ID")
 		return
 	}
 
 	user, err := c.repo.FindByID(id)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
-			ctx.JSON(http.StatusNotFound, gin.H{"error": "user not found"})
+			response.NotFound(ctx)
 			return
 		}
 		zap.L().Error("failed to get user", zap.Error(err))
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "failed to get user"})
+		response.ServerError(ctx, "failed to get user")
 		return
 	}
 
-	ctx.JSON(http.StatusOK, user)
+	response.Success(ctx, user)
 }
 
 func (c *UserController) UpdateUser(ctx *gin.Context) {
 	id, err := strconv.ParseUint(ctx.Param("id"), 10, 64)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "invalid user ID"})
+		response.BadRequest(ctx, "invalid user ID")
 		return
 	}
 
 	var req model.UpdateUserRequest
 	if err := ctx.ShouldBindJSON(&req); err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		response.BadRequest(ctx, err.Error())
 		return
 	}
 
 	user, err := c.repo.FindByID(id)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
-			ctx.JSON(http.StatusNotFound, gin.H{"error": "user not found"})
+			response.NotFound(ctx)
 			return
 		}
 		zap.L().Error("failed to get user", zap.Error(err))
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "failed to get user"})
+		response.ServerError(ctx, "failed to get user")
 		return
 	}
 
@@ -101,38 +101,38 @@ func (c *UserController) UpdateUser(ctx *gin.Context) {
 
 	if err := c.repo.Update(user); err != nil {
 		zap.L().Error("failed to update user", zap.Error(err))
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "failed to update user"})
+		response.ServerError(ctx, "failed to update user")
 		return
 	}
 
-	ctx.JSON(http.StatusOK, user)
+	response.Success(ctx, user)
 }
 
 func (c *UserController) DeleteUser(ctx *gin.Context) {
 	id, err := strconv.ParseUint(ctx.Param("id"), 10, 64)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": "invalid user ID"})
+		response.BadRequest(ctx, "invalid user ID")
 		return
 	}
 
 	user, err := c.repo.FindByID(id)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
-			ctx.JSON(http.StatusNotFound, gin.H{"error": "user not found"})
+			response.NotFound(ctx)
 			return
 		}
 		zap.L().Error("failed to get user", zap.Error(err))
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "failed to get user"})
+		response.ServerError(ctx, "failed to get user")
 		return
 	}
 
 	if err := c.repo.Delete(id); err != nil {
 		zap.L().Error("failed to delete user", zap.Error(err))
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "failed to delete user"})
+		response.ServerError(ctx, "failed to delete user")
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"message": "user deleted", "user": user})
+	response.SuccessWithMsg(ctx, "user deleted", user)
 }
 
 func (c *UserController) ListUsers(ctx *gin.Context) {
@@ -149,11 +149,11 @@ func (c *UserController) ListUsers(ctx *gin.Context) {
 	users, total, err := c.repo.List(page, limit)
 	if err != nil {
 		zap.L().Error("failed to list users", zap.Error(err))
-		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "failed to list users"})
+		response.ServerError(ctx, "failed to list users")
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{
+	response.Success(ctx, gin.H{
 		"data":  users,
 		"total": total,
 		"page":  page,

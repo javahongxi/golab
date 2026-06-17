@@ -11,6 +11,9 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default()
 
 	r.Use(middleware.RequestID())
+	r.Use(middleware.Tracing())
+	r.Use(middleware.RateLimit())
+	r.Use(middleware.CircuitBreaker())
 	r.Use(middleware.Logger())
 	r.Use(middleware.Recovery())
 
@@ -19,18 +22,26 @@ func SetupRouter() *gin.Engine {
 
 	userRepo := model.NewUserRepository(model.DB)
 	userCtrl := controller.NewUserController(userRepo)
+	authCtrl := controller.NewAuthController(userRepo)
 
 	api := r.Group("/api")
 	{
 		v1 := api.Group("/v1")
 		{
+			auth := v1.Group("/auth")
+			{
+				auth.POST("/register", authCtrl.Register)
+				auth.POST("/login", authCtrl.Login)
+			}
+
 			users := v1.Group("/users")
 			{
-				users.POST("", userCtrl.CreateUser)
 				users.GET("", userCtrl.ListUsers)
 				users.GET("/:id", userCtrl.GetUser)
-				users.PUT("/:id", userCtrl.UpdateUser)
-				users.DELETE("/:id", userCtrl.DeleteUser)
+
+				users.POST("", userCtrl.CreateUser)
+				users.PUT("/:id", middleware.Auth(), userCtrl.UpdateUser)
+				users.DELETE("/:id", middleware.Auth(), userCtrl.DeleteUser)
 			}
 		}
 	}

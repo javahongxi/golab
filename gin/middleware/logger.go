@@ -15,6 +15,7 @@ func InitLogger() {
 	if err != nil {
 		panic(err)
 	}
+	zap.ReplaceGlobals(logger)
 }
 
 func Logger() gin.HandlerFunc {

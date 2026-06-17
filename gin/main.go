@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/javahongxi/golab/gin/cache"
 	"github.com/javahongxi/golab/gin/config"
 	"github.com/javahongxi/golab/gin/middleware"
 	"github.com/javahongxi/golab/gin/model"
@@ -17,6 +18,7 @@ func main() {
 	zap.L().Info("starting gin demo server")
 
 	model.InitDB()
+	cache.InitRedis()
 
 	r := routes.SetupRouter()
 
