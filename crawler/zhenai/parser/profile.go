@@ -36,7 +36,7 @@ var carRe = regexp.MustCompile(
 var guessRe = regexp.MustCompile(
 	`<a class="exp-user-name"[^>]*href="(http://localhost:8080/mock/album.zhenai.com/u/[\d]+)">([^<]+)</a>`)
 var idUrlRe = regexp.MustCompile(
-	`http://localhost:8080/mock/album.zhenai.com/u/([\d]+)`)
+	`album\.zhenai\.com/u/([\d]+)`)
 
 func parseProfile(contents []byte, url string,
 	name string) engine.ParseResult {

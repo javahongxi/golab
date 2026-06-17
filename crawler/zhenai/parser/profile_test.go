@@ -1,7 +1,6 @@
 package parser
 
 import (
-	"os"
 	"testing"
 
 	"github.com/javahongxi/golab/crawler/engine"
@@ -9,11 +8,7 @@ import (
 )
 
 func TestParseProfile(t *testing.T) {
-	contents, err := os.ReadFile("profile_test_data.html.txt")
-
-	if err != nil {
-		panic(err)
-	}
+	contents := []byte(GetProfileTestData())
 
 	result := parseProfile(contents,
 		"http://album.zhenai.com/u/108906739",
