@@ -3,9 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/javahongxi/golab/pipeline"
 	"os"
 	"strconv"
+
+	"github.com/javahongxi/golab/pipeline"
 )
 
 func main() {
@@ -59,7 +60,7 @@ func createNetworkPipeline(filename string, filesize, chunkCount int) <-chan int
 
 		source := pipeline.ReaderSource(bufio.NewReader(file), chunkSize)
 
-		addr := ":" + strconv.Itoa(7000+i)
+		addr := ":" + strconv.Itoa(10000+i)
 		pipeline.NetworkSink(addr, pipeline.InMemSort(source))
 		sortAddrs = append(sortAddrs, addr)
 	}
