@@ -10,11 +10,11 @@ import (
 )
 
 type circuitBreaker struct {
-	mu          sync.Mutex
-	state       string
-	failCount   int
-	lastFail    time.Time
-	resetAfter  time.Duration
+	mu            sync.Mutex
+	state         string
+	failCount     int
+	lastFail      time.Time
+	resetAfter    time.Duration
 	failThreshold int
 }
 
@@ -41,7 +41,7 @@ func CircuitBreaker() gin.HandlerFunc {
 		state := breaker.state
 
 		if state == stateOpen {
-			if time.Now().Sub(breaker.lastFail) > breaker.resetAfter {
+			if time.Since(breaker.lastFail) > breaker.resetAfter {
 				breaker.state = stateHalfOpen
 				state = stateHalfOpen
 				zap.L().Info("circuit breaker transitioning to half-open")
