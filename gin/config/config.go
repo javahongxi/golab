@@ -1,8 +1,7 @@
 package config
 
 import (
-	"os"
-	"strconv"
+	"github.com/javahongxi/golab/config"
 )
 
 type Config struct {
@@ -24,37 +23,27 @@ type Config struct {
 
 var Cfg *Config
 
-func init() {
+// Init 从 Viper 加载配置到 Cfg 结构体
+func Init() {
 	Cfg = &Config{
-		ServerPort:    getEnv("SERVER_PORT", "8080"),
-		DBHost:        getEnv("DB_HOST", "localhost"),
-		DBPort:        getEnvInt("DB_PORT", 3306),
-		DBUser:        getEnv("DB_USER", "root"),
-		DBPassword:    getEnv("DB_PASSWORD", "root1234"),
-		DBName:        getEnv("DB_NAME", "test"),
-		LogLevel:      getEnv("LOG_LEVEL", "info"),
-		JWTSecret:     getEnv("JWT_SECRET", "gin-demo-secret-key"),
-		ReadTimeout:   getEnvInt("READ_TIMEOUT", 30),
-		WriteTimeout:  getEnvInt("WRITE_TIMEOUT", 30),
-		RedisAddr:     getEnv("REDIS_ADDR", "localhost:6379"),
-		RedisPassword: getEnv("REDIS_PASSWORD", ""),
-		RedisDB:       getEnvInt("REDIS_DB", 0),
-		RateLimit:     getEnvInt("RATE_LIMIT", 100),
+		ServerPort:    config.GetString("server.port"),
+		DBHost:        config.GetString("database.host"),
+		DBPort:        config.GetInt("database.port"),
+		DBUser:        config.GetString("database.user"),
+		DBPassword:    config.GetString("database.password"),
+		DBName:        config.GetString("database.name"),
+		LogLevel:      config.GetString("log.level"),
+		JWTSecret:     config.GetString("jwt.secret"),
+		ReadTimeout:   config.GetInt("server.read_timeout"),
+		WriteTimeout:  config.GetInt("server.write_timeout"),
+		RedisAddr:     config.GetString("redis.addr"),
+		RedisPassword: config.GetString("redis.password"),
+		RedisDB:       config.GetInt("redis.db"),
+		RateLimit:     config.GetInt("rate_limit.requests_per_minute"),
 	}
 }
 
-func getEnv(key, fallback string) string {
-	if value, ok := os.LookupEnv(key); ok {
-		return value
-	}
-	return fallback
-}
-
-func getEnvInt(key string, fallback int) int {
-	if value, ok := os.LookupEnv(key); ok {
-		if intValue, err := strconv.Atoi(value); err == nil {
-			return intValue
-		}
-	}
-	return fallback
+// Reload 热更新时重新加载配置
+func Reload() {
+	Init()
 }

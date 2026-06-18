@@ -1,0 +1,38 @@
+# 服务器配置
+server:
+  port: "8080"
+  mode: "debug"          # debug | release | test
+  read_timeout: 30       # 读超时（秒）
+  write_timeout: 30      # 写超时（秒）
+
+# 数据库配置
+database:
+  host: "localhost"
+  port: 3306
+  user: "root"
+  password: "root1234"
+  name: "test"
+
+# Redis 配置
+redis:
+  addr: "localhost:6379"
+  password: ""
+  db: 0
+
+# JWT 配置
+jwt:
+  secret: "gin-demo-secret-key"
+  expire_hours: 24
+
+# 日志配置
+log:
+  level: "info"          # debug | info | warn | error
+
+# 限流配置
+rate_limit:
+  requests_per_minute: 100
+
+# 链路追踪配置
+tracing:
+  service_name: "gin-demo"
+  zipkin_url: "http://localhost:9411/api/v2/spans"
