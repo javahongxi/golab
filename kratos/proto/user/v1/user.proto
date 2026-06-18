@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package user.v1;
+
+option go_package = "github.com/javahongxi/golab/kratos/proto/user/v1;userv1";
+
+import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+
+// 用户服务
+service UserService {
+    // 创建用户
+    rpc CreateUser(CreateUserRequest) returns (User) {
+        option (google.api.http) = {
+            post: "/v1/users"
+            body: "*"
+        };
+    };
+    // 获取用户
+    rpc GetUser(GetUserRequest) returns (User) {
+        option (google.api.http) = {
+            get: "/v1/users/{id}"
+        };
+    };
+    // 更新用户
+    rpc UpdateUser(UpdateUserRequest) returns (User) {
+        option (google.api.http) = {
+            put: "/v1/users/{id}"
+            body: "*"
+        };
+    };
+    // 删除用户
+    rpc DeleteUser(DeleteUserRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            delete: "/v1/users/{id}"
+        };
+    };
+    // 列出用户
+    rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {
+        option (google.api.http) = {
+            get: "/v1/users"
+        };
+    };
+}
+
+message User {
+    int64 id = 1;
+    string username = 2;
+    string nickname = 3;
+    string email = 4;
+    int32 age = 5;
+}
+
+message CreateUserRequest {
+    string username = 1;
+    string nickname = 2;
+    string email = 3;
+    int32 age = 4;
+}
+
+message GetUserRequest {
+    int64 id = 1;
+}
+
+message UpdateUserRequest {
+    int64 id = 1;
+    string nickname = 2;
+    string email = 3;
+    int32 age = 4;
+}
+
+message DeleteUserRequest {
+    int64 id = 1;
+}
+
+message ListUsersRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+}
+
+message ListUsersResponse {
+    repeated User users = 1;
+    int32 total = 2;
+}
