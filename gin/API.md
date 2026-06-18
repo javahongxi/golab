@@ -210,3 +210,21 @@ Authorization: Bearer <token>
 - 当连续 5 次返回 500 错误时触发熔断
 - 熔断后所有请求返回：`{"code":503,"message":"service unavailable"}`
 - 熔断 30 秒后自动尝试恢复
+
+## 缓存说明
+
+- 用户数据采用 Redis 缓存，缓存时间 5 分钟
+- 支持的缓存键：
+  - `user:{id}` - 用户信息（按 ID）
+  - `user:username:{name}` - 用户信息（按用户名）
+- 数据更新时自动刷新缓存
+
+## 分布式追踪
+
+- 使用 OpenTelemetry 进行分布式追踪
+- 支持 Zipkin 导出（默认地址：`http://localhost:9411`）
+- 每个请求自动创建 span，记录：
+  - HTTP 方法和路径
+  - 客户端 IP
+  - 请求 ID
+  - 响应状态码
