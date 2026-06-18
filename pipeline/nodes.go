@@ -34,11 +34,11 @@ func InMemSort(in <-chan int) <-chan int {
 		for v := range in {
 			a = append(a, v)
 		}
-		fmt.Println("Read done:", time.Now().Sub(startTime))
+		fmt.Println("Read done:", time.Since(startTime))
 
 		// Sort
 		sort.Ints(a)
-		fmt.Println("InMemSort done:", time.Now().Sub(startTime))
+		fmt.Println("InMemSort done:", time.Since(startTime))
 
 		// Output
 		for _, v := range a {
@@ -64,7 +64,7 @@ func Merge(in1, in2 <-chan int) <-chan int {
 			}
 		}
 		close(out)
-		fmt.Println("Merge done:", time.Now().Sub(startTime))
+		fmt.Println("Merge done:", time.Since(startTime))
 	}()
 	return out
 }
