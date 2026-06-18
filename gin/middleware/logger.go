@@ -26,7 +26,7 @@ func Logger() gin.HandlerFunc {
 
 		c.Next()
 
-		latency := time.Now().Sub(start)
+		latency := time.Since(start)
 		statusCode := c.Writer.Status()
 		clientIP := c.ClientIP()
 
