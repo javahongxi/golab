@@ -14,10 +14,10 @@ import (
 
 var Tracer trace.Tracer
 
-func InitTracer(serviceName string) {
+func InitTracer(serviceName, zipkinURL string) {
 	ctx := context.Background()
 
-	exporter, err := zipkin.New("http://localhost:9411/api/v2/spans")
+	exporter, err := zipkin.New(zipkinURL)
 	if err != nil {
 		zap.L().Warn("zipkin exporter not available, tracing disabled", zap.Error(err))
 		Tracer = otel.Tracer(serviceName)

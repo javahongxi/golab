@@ -10,6 +10,7 @@ import (
 	ginconfig "github.com/javahongxi/golab/gin/config"
 	"github.com/javahongxi/golab/gin/middleware"
 	"github.com/javahongxi/golab/gin/model"
+	"github.com/javahongxi/golab/gin/otel"
 	"github.com/javahongxi/golab/gin/routes"
 	"go.uber.org/zap"
 )
@@ -28,6 +29,8 @@ func main() {
 	})
 
 	middleware.InitLogger()
+	otel.InitTracer(ginconfig.Cfg.TracingServiceName, ginconfig.Cfg.ZipkinURL)
+
 	zap.L().Info("starting gin demo server")
 
 	model.InitDB()
