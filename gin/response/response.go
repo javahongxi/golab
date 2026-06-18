@@ -9,7 +9,7 @@ import (
 type Response struct {
 	Code    int         `json:"code"`
 	Message string      `json:"message"`
-	Data    interface{} `json:"data,omitempty"`
+	Data    any `json:"data,omitempty"`
 }
 
 const (
@@ -21,7 +21,7 @@ const (
 	ValidationCode = 400
 )
 
-func Success(c *gin.Context, data interface{}) {
+func Success(c *gin.Context, data any) {
 	c.JSON(http.StatusOK, Response{
 		Code:    SuccessCode,
 		Message: "success",
@@ -29,7 +29,7 @@ func Success(c *gin.Context, data interface{}) {
 	})
 }
 
-func SuccessWithMsg(c *gin.Context, message string, data interface{}) {
+func SuccessWithMsg(c *gin.Context, message string, data any) {
 	c.JSON(http.StatusOK, Response{
 		Code:    SuccessCode,
 		Message: message,

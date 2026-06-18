@@ -13,7 +13,7 @@ import (
 
 type SerializedParser struct {
 	Name string
-	Args interface{}
+	Args any
 }
 
 type Request struct {

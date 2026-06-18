@@ -5,17 +5,24 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"strconv"
 	"strings"
 )
 
 func convertToBin(n int) string {
-	result := ""
-	for ; n > 0; n /= 2 {
-		lsb := n % 2
-		result = strconv.Itoa(lsb) + result
+	if n == 0 {
+		return "0"
 	}
-	return result
+	var sb strings.Builder
+	sb.Grow(32) // pre-allocate for efficiency
+	for ; n > 0; n /= 2 {
+		sb.WriteByte(byte('0' + n%2))
+	}
+	// reverse the string
+	bytes := []byte(sb.String())
+	for i, j := 0, len(bytes)-1; i < j; i, j = i+1, j-1 {
+		bytes[i], bytes[j] = bytes[j], bytes[i]
+	}
+	return string(bytes)
 }
 
 func printFile(filename string) {

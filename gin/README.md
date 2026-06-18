@@ -42,7 +42,7 @@ curl http://localhost:8080/ping
 
 **响应示例**:
 ```json
-{"code":0,"message":"success","data":{"message":"pong","request_id":"..."}}
+{"message":"pong"}
 ```
 
 ### GET /health
@@ -54,7 +54,7 @@ curl http://localhost:8080/health
 
 **响应示例**:
 ```json
-{"code":0,"message":"success","data":{"status":"ok","service":"gin-demo"}}
+{"status":"ok"}
 ```
 
 ## 认证接口

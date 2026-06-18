@@ -29,7 +29,7 @@ func InitRedis() {
 	zap.L().Info("redis connected successfully")
 }
 
-func Set(key string, value interface{}, expiration time.Duration) error {
+func Set(key string, value any, expiration time.Duration) error {
 	if RDB == nil {
 		return nil
 	}
@@ -40,7 +40,18 @@ func Set(key string, value interface{}, expiration time.Duration) error {
 	return RDB.Set(context.Background(), key, data, expiration).Err()
 }
 
-func Get(key string, result interface{}) error {
+func SetTyped[T any](key string, value T, expiration time.Duration) error {
+	if RDB == nil {
+		return nil
+	}
+	data, err := json.Marshal(value)
+	if err != nil {
+		return err
+	}
+	return RDB.Set(context.Background(), key, data, expiration).Err()
+}
+
+func Get(key string, result any) error {
 	if RDB == nil {
 		return fmt.Errorf("redis not connected")
 	}
@@ -49,6 +60,21 @@ func Get(key string, result interface{}) error {
 		return err
 	}
 	return json.Unmarshal(data, result)
+}
+
+func GetTyped[T any](key string) (T, error) {
+	var result T
+	if RDB == nil {
+		return result, fmt.Errorf("redis not connected")
+	}
+	data, err := RDB.Get(context.Background(), key).Bytes()
+	if err != nil {
+		return result, err
+	}
+	if err := json.Unmarshal(data, &result); err != nil {
+		return result, err
+	}
+	return result, nil
 }
 
 func Del(key string) error {

@@ -18,7 +18,17 @@ type Profile struct {
 	Car        string
 }
 
-func FromJsonObj(o interface{}) (Profile, error) {
+func FromJsonObj(o any) (Profile, error) {
+	var profile Profile
+	s, err := json.Marshal(o)
+	if err != nil {
+		return profile, err
+	}
+	err = json.Unmarshal(s, &profile)
+	return profile, err
+}
+
+func FromJsonTyped[T any](o T) (Profile, error) {
 	var profile Profile
 	s, err := json.Marshal(o)
 	if err != nil {

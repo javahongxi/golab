@@ -10,6 +10,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"go.uber.org/zap"
 
 	"github.com/javahongxi/golab/grpc/pb"
 )
@@ -109,16 +110,21 @@ func (s *userService) ListUsers(ctx context.Context, req *pb.ListUsersRequest) (
 }
 
 func main() {
+	logger, _ := zap.NewProduction()
+	sugar := logger.Sugar()
+	undo := zap.ReplaceGlobals(logger)
+	defer undo()
+
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		sugar.Fatalf("failed to listen: %v", err)
 	}
 
 	s := grpc.NewServer()
 	pb.RegisterUserServiceServer(s, newUserService())
 
-	log.Println("gRPC server listening on :50051")
+	sugar.Info("gRPC server listening on :50051")
 	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
+		sugar.Fatalf("failed to serve: %v", err)
 	}
 }

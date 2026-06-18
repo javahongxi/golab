@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
 
+	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
@@ -28,7 +28,7 @@ func initDB() error {
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)
 
-	log.Println("Database connected successfully")
+	zap.L().Info("Database connected successfully")
 	return nil
 }
 
@@ -75,15 +75,19 @@ func listUsers() ([]model.User, error) {
 }
 
 func main() {
+	logger, _ := zap.NewProduction()
+	undo := zap.ReplaceGlobals(logger)
+	defer undo()
+
 	if err := initDB(); err != nil {
-		log.Fatalf("Failed to connect database: %v", err)
+		zap.L().Fatal("Failed to connect database", zap.Error(err))
 	}
 
 	err := db.AutoMigrate(&model.User{})
 	if err != nil {
-		log.Fatalf("Failed to migrate: %v", err)
+		zap.L().Fatal("Failed to migrate", zap.Error(err))
 	}
-	log.Println("Table migrated successfully")
+	zap.L().Info("Table migrated successfully")
 
 	newUser := &model.User{
 		Username: "hongxi",
@@ -92,47 +96,47 @@ func main() {
 		Age:      30,
 	}
 	if err := createUser(newUser); err != nil {
-		log.Printf("Failed to create user: %v", err)
+		zap.L().Error("Failed to create user", zap.Error(err))
 	} else {
-		log.Printf("Created user: ID=%d, Username=%s", newUser.ID, newUser.Username)
+		zap.L().Info("Created user", zap.Uint("id", newUser.ID), zap.String("username", newUser.Username))
 	}
 
 	user, err := getUserByID(newUser.ID)
 	if err != nil {
-		log.Printf("Failed to get user: %v", err)
+		zap.L().Error("Failed to get user", zap.Error(err))
 	} else {
-		log.Printf("Got user: %+v", user)
+		zap.L().Info("Got user", zap.Any("user", user))
 	}
 
 	userByUsername, err := getUserByUsername("hongxi")
 	if err != nil {
-		log.Printf("Failed to get user by username: %v", err)
+		zap.L().Error("Failed to get user by username", zap.Error(err))
 	} else {
-		log.Printf("Got user by username: %+v", userByUsername)
+		zap.L().Info("Got user by username", zap.Any("user", userByUsername))
 	}
 
 	user.Nickname = "Hongxi"
 	user.Age = 31
 	if err := updateUser(user); err != nil {
-		log.Printf("Failed to update user: %v", err)
+		zap.L().Error("Failed to update user", zap.Error(err))
 	} else {
-		log.Printf("Updated user: %+v", user)
+		zap.L().Info("Updated user", zap.Any("user", user))
 	}
 
 	users, err := listUsers()
 	if err != nil {
-		log.Printf("Failed to list users: %v", err)
+		zap.L().Error("Failed to list users", zap.Error(err))
 	} else {
-		log.Printf("User list (%d):", len(users))
+		zap.L().Info("User list", zap.Int("count", len(users)))
 		for _, u := range users {
-			log.Printf("  - ID=%d, Username=%s, Nickname=%s", u.ID, u.Username, u.Nickname)
+			zap.L().Info("  - user", zap.Uint("id", u.ID), zap.String("username", u.Username), zap.String("nickname", u.Nickname))
 		}
 	}
 
 	if err := deleteUser(newUser.ID); err != nil {
-		log.Printf("Failed to delete user: %v", err)
+		zap.L().Error("Failed to delete user", zap.Error(err))
 	} else {
-		log.Printf("Deleted user: ID=%d", newUser.ID)
+		zap.L().Info("Deleted user", zap.Uint("id", newUser.ID))
 	}
 
 	fmt.Println("\nGORM CRUD example completed!")

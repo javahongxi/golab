@@ -95,38 +95,89 @@ func GetStringSlice(key string) []string {
 }
 
 // Get 获取任意类型配置值
-func Get(key string) interface{} {
+func Get(key string) any {
 	mu.RLock()
 	defer mu.RUnlock()
 	return v.Get(key)
 }
 
+// GetTyped 获取指定类型的配置值
+func GetTyped[T any](key string) (T, error) {
+	mu.RLock()
+	defer mu.RUnlock()
+	var result T
+	if err := v.UnmarshalKey(key, &result); err != nil {
+		return result, err
+	}
+	return result, nil
+}
+
 // UnmarshalKey 将指定 key 的配置解析到结构体
-func UnmarshalKey(key string, out interface{}) error {
+func UnmarshalKey(key string, out any) error {
 	mu.RLock()
 	defer mu.RUnlock()
 	return v.UnmarshalKey(key, out)
 }
 
+// UnmarshalKeyTyped 将指定 key 的配置解析到指定类型
+func UnmarshalKeyTyped[T any](key string) (T, error) {
+	mu.RLock()
+	defer mu.RUnlock()
+	var result T
+	if err := v.UnmarshalKey(key, &result); err != nil {
+		return result, err
+	}
+	return result, nil
+}
+
 // Unmarshal 将所有配置解析到结构体
-func Unmarshal(out interface{}) error {
+func Unmarshal(out any) error {
 	mu.RLock()
 	defer mu.RUnlock()
 	return v.Unmarshal(out)
 }
 
+// UnmarshalTyped 将所有配置解析到指定类型
+func UnmarshalTyped[T any]() (T, error) {
+	mu.RLock()
+	defer mu.RUnlock()
+	var result T
+	if err := v.Unmarshal(&result); err != nil {
+		return result, err
+	}
+	return result, nil
+}
+
 // Set 动态设置配置值
-func Set(key string, value interface{}) {
+func Set(key string, value any) {
+	mu.Lock()
+	defer mu.Unlock()
+	v.Set(key, value)
+}
+
+// SetTyped 动态设置指定类型的配置值
+func SetTyped[T any](key string, value T) {
 	mu.Lock()
 	defer mu.Unlock()
 	v.Set(key, value)
 }
 
 // AllSettings 返回所有配置
-func AllSettings() map[string]interface{} {
+func AllSettings() map[string]any {
 	mu.RLock()
 	defer mu.RUnlock()
 	return v.AllSettings()
+}
+
+// AllSettingsTyped 返回所有配置并解析为指定类型
+func AllSettingsTyped[T any]() (T, error) {
+	mu.RLock()
+	defer mu.RUnlock()
+	var result T
+	if err := v.Unmarshal(&result); err != nil {
+		return result, err
+	}
+	return result, nil
 }
 
 // ConfigFileUsed 返回当前使用的配置文件路径

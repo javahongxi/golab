@@ -66,7 +66,10 @@ func Reverse[T any](ts []T) []T {
 }
 
 func Chunk[T any](ts []T, size int) [][]T {
-	var result [][]T
+	if size <= 0 || len(ts) == 0 {
+		return nil
+	}
+	result := make([][]T, 0, (len(ts)+size-1)/size)
 	for i := 0; i < len(ts); i += size {
 		end := i + size
 		if end > len(ts) {
