@@ -117,5 +117,6 @@ go run pipeline/netdemo/main.go
 - <https://github.com/cockroachdb/cockroach>
 - <https://github.com/grafana/grafana>
 - <https://github.com/argoproj/argo-workflows>
+- <https://github.com/milvus-io/milvus>
 
 © [hongxi.org](http://hongxi.org)
