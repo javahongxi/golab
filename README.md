@@ -91,11 +91,14 @@ GoLab 按照从入门到实战的学习路径组织，帮助你系统掌握 Go �
 ### 爬虫项目演示
 
 ```bash
-# 启动相亲网站 mock
-go run lovemock/main.go
+# 克隆并启动相亲网站 lovemock
+git clone https://github.com/javahongxi/lovemock
+cd lovemock
+go run main.go
 
 # 启动单任务爬虫
-go run crawler/main.go
+cd crawler
+go run main.go
 ```
 
 ### 分布式爬虫演示
