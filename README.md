@@ -20,10 +20,10 @@ go get ./...
 
 ### 爬虫项目并发版演示
 
-- 启动相亲网站 [mockserver](https://github.com/javahongxi/mockserver)
+- 启动相亲网站 [lovemock](https://github.com/javahongxi/lovemock)
 
 ```shell
-go run mockserver/main.go
+go run lovemock/main.go
 ```
 
 - 启动爬虫
@@ -34,10 +34,10 @@ go run crawler/main.go
 
 ### 爬虫项目分布式版演示
 
-- 启动相亲网站 [mockserver](https://github.com/javahongxi/mockserver)
+- 启动相亲网站 [lovemock](https://github.com/javahongxi/lovemock)
 
 ```shell
-go run mockserver/main.go
+go run lovemock/main.go
 ```
 
 - 下载ES并本地启动
