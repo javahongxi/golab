@@ -1,6 +1,6 @@
 # GoLab
 
-> Go 语言全栈实战：从基础语法到 Web（Gin）、微服务（Kratos/gRPC）、分布式爬虫 🏡
+> Go 语言全栈实战：基础语法 · Gin Web · Kratos 微服务 · 分布式爬虫 🏡
 
 ```bash
 git clone https://github.com/javahongxi/golab.git
