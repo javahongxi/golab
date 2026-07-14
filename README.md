@@ -1,4 +1,4 @@
-# GoLab
+# GoLab 🧪
 
 > Go 语言全栈实战：基础语法 · Gin Web · Kratos 微服务 · 分布式爬虫 🏡
 
